@@ -1,0 +1,60 @@
+@extends('layouts.admin.master')
+@section('title','user-index')
+@section('content')
+
+<div class="row">
+    <div class="col-12 text-dark">
+        <div class="card shadow p-3 mb-5 bg-white rounded border-info">
+            <div class="card-header rounded border-primary">
+                
+            <div class="float-left">
+                <h2>Job Category </h2>
+            </div>
+
+            <div class="float-right">
+                <a class="btn btn-primary btn-icon-spilt" href="{{ route('jobcategory.create') }}"> </i> Create JobCategory </a> 
+            </div>
+            </div>
+
+<div class="card-body">
+    @if (session('success'))
+    <div class="alert alert-warning">
+        {{ session('success') }}
+    </div>
+    @endif
+
+<table class="table table-striped">
+    <thead class="table-dark">
+        <tr>
+            <th> Job Category Id </th>
+            <th> Job Category Name  </th>
+            <th>Actions </th>
+         
+        </tr>
+
+    </thead>
+    <tbody>
+
+  
+            @foreach ($jobCategories as $jobcategory) 
+
+        <tr>
+            <td> {{ $jobcategory->id }}</td>
+            <td> {{ $jobcategory->name }}</td>
+         
+           
+
+            <td>
+            <a href="{{ route('jobcategory.show',$jobcategory->id) }}" class="btn btn-info btn-rounded"><span class="icon text-white-50"><i class="fas fa-trash"></i></span><span class="text">Show</i></a>
+            <a href="{{ route('jobcategory.edit',$jobcategory->id) }}" class="btn btn-warning btn-rounded"><span class="icon text-white-50"><i class="fas fa-trash"></i></span><span class="text">Edit</i></a>
+            <a href="{{ route('jobcategory.delete',$jobcategory->id) }}" class="btn btn-danger btn-rounded"><span class="icon text-white-50"><i class="fas fa-trash"></i></span><span class="text">Delete</i></a>
+            </td>
+        </tr>
+        @endforeach
+    </tbody>
+    
+</table>
+</div>
+
+ 
+@endsection
