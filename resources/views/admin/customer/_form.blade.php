@@ -14,7 +14,7 @@
 
 <div class="col-md-12">
 {!! Form::text ('nic',' NIC') !!} </div>
-
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 <div class="col-md-12">
 {!! Form::text ('mobileno','Mobile Number') !!} </div>
 
