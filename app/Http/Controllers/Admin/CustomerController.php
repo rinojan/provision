@@ -4,8 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Admin\UserStoreRequest;
-use App\Http\Requests\Admin\UserUpdateRequest;
+use App\Http\Requests\Admin\CustomerStoreRequest;
+use App\Http\Requests\Admin\CustomerUpdateRequest;
 use illuminate\Support\Facades\Hash;
 
 
@@ -41,11 +41,11 @@ class CustomerController extends Controller
     } 
 
     
-    public function show(User $customer) {
+    public function show(Customer $customer) {
         return view('admin.customer.show',compact('customer'));
     }
  
-    public function edit(User $customer) {
+    public function edit(Customer $customer) {
      
         return view('admin.customer.edit',compact('customer'));
     }
@@ -56,12 +56,12 @@ class CustomerController extends Controller
         return redirect()->route('customer.index')->with('success','customer details has been update successfuly!');;
     }
     
-    public function destroy(User $customer){
+    public function destroy(Customer $customer){
         $customer->delete();
         return redirect()->route('customer.index')->with('success', 'Customer  details has been deleted successfuly!');
     }
 
-    public function delete(User $customer) {
+    public function delete(Customer $customer) {
      
         return view('admin.customer.delete',compact('customer'));
     }

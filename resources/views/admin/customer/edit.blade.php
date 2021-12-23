@@ -2,15 +2,12 @@
 @section('title','customer-show')
 @section('content')
 
-
-
-
 <div class="row">
     <div class="col-12">
         <div class="card">
             <div class="card-header">
                 <div class="float-left">
-                    <h4 class="card-title">Edit- {{ $customer->customer->firstname}}</h4>
+                    <h4 class="card-title">Edit- {{ $customer->firstname}}</h4>
                 </div>
              
             </div>

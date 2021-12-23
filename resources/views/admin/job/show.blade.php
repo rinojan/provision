@@ -11,25 +11,17 @@
                 <div class="float-left">
                 <a href="{{route('job.index')}}" class="btn btn-primary btn-circle"><i class="far fa-arrow-left">back</i></a>
                                 </div>
-            
                     
             </div>
-
             </div>
-
-
-<div class="card-body">
-    <table class="table">
-        <tbody>
-            <tr>
-            <td>JobCategory Id :  {{$job->id}}</td>
-            </tr>
-            <tr>
-            <td>JobCategory Name :  {{$job->jobcategory->name}}</td>
-            </tr>
-           
+    <div class="card-body">
+        <table class="table">
+            <tbody>
+                <tr><td>JobCategory Id :  {{$job->id}}</td></tr>
+                <tr><td>JobCategory Name :  {{$job->jobcategory->name}}</td></tr>
             </tbody>
-         </table>
+            
+        </table>
     </div>
 </div>
 </div>

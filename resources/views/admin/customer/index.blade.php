@@ -44,9 +44,9 @@
             <td> {{ $customer->role->id }}</td>
 
             <td>
-            <a href="{{ route('customer.show',$customer->id) }}" class="btn btn-info btn-rounded"><span class="icon text-white-50"><i class="fas fa-trash"></i></span><span class="text">Show</i></a>
-            <a href="{{ route('customer.edit',$customer->id) }}" class="btn btn-warning btn-rounded"><span class="icon text-white-50"><i class="fas fa-trash"></i></span><span class="text">Edit</i></a>
-            <a href="{{ route('customer.delete',$customer->id) }}" class="btn btn-danger btn-rounded"><span class="icon text-white-50"><i class="fas fa-trash"></i></span><span class="text">Delete</i></a>
+            <a href="{{ route('customer.show',$customer->customer_id) }}" class="btn btn-info btn-rounded"><span class="icon text-white-50"><i class="fas fa-trash"></i></span><span class="text">Show</i></a>
+            <a href="{{ route('customer.edit',$customer->customer_id) }}" class="btn btn-warning btn-rounded"><span class="icon text-white-50"><i class="fas fa-trash"></i></span><span class="text">Edit</i></a>
+            <a href="{{ route('customer.delete',$customer->customer_id) }}" class="btn btn-danger btn-rounded"><span class="icon text-white-50"><i class="fas fa-trash"></i></span><span class="text">Delete</i></a>
             </td>
        
         </tr>

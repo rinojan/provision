@@ -17,19 +17,18 @@
     <div class="card-body">
         <table class="table">
             <tbody>
-                <tr>
-                    <td>User {{$user->id}}</td>
-                </tr>
-
-                <tr>
-                    <td>Email -{{$user->email}}</td>
-                </tr>
-            
+                <tr><td> id:   {{ $user->id }}   </td></tr>
+                <tr><td> Role  : {{ $user->role->name }}   </td></tr>
+                <tr><td> Email : {{ $user->email }}  </td></tr>
             </tbody>
          </table>
     </div>
+    </div>
+
+    
 </div>
-</div>
+
+
 
 
 

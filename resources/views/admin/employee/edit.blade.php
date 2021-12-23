@@ -2,15 +2,12 @@
 @section('title','employee-edit')
 @section('content')
 
-
-
 <div class="row">
     <div class="col-12">
-
         <div class="card">
             <div class="card-header">
                 <div class="float-left">
-                    <h4 class="card-title">Edit- {{ $employee->firstname}}</h4>  <!-- $employee user details than varuthu-->
+                    <h4 class="card-title">Edit - {{ $employee->firstname}}</h4>  <!-- $employee user details than varuthu-->
                 </div>
             </div>
 
@@ -30,8 +27,5 @@
             </div>
         </div>
     </div>
-
-
-
 
 @endsection
