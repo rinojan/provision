@@ -36,15 +36,9 @@ class EmployeeUpdateRequest extends FormRequest
             'mobileno'=>'required',
             'gender'=>'required',
             'password'=>'required|confirmed|min:8',
-            'working_duration'=>'required',
-            'type'=>'required',
-            'salary'=>'required',
-      
             'province_id'=>'required',
             'district_id'=>'required',
          
-            'job_category_id'=>'required',
-            'job_id'=>'required',
             
         
         ];

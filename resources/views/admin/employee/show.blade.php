@@ -17,7 +17,7 @@
         <table class="table">
             <tbody>
                 <tr> <td> id    :       {{$employee->id}}          </td> </tr>
-                <tr> <td> Role    :     {{$employee->Role->name}}  </td> </tr>
+                <tr> <td> Role    :     {{$employee->user->id}}  </td> </tr>
                 <tr> <td> Email :       {{$employee->user->email}} </td> </tr>
                 <tr> <td> Firstname :   {{$employee->firstname}}   </td> </tr>
                 <tr> <td> Lastname  :   {{$employee->lastname}}    </td> </tr>
@@ -25,7 +25,7 @@
                 <tr> <td> Address   :   {{$employee->address }}    </td> </tr>
                 <tr> <td> Nic   :       {{$employee->nic}}         </td> </tr>
                 <tr> <td> Gender :      {{$employee->gender}}      </td> </tr>
-                <tr> <td> 
+            
 
         </tbody>
         </table>

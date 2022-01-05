@@ -12,7 +12,8 @@
             </div>
 
             <div class="float-right">
-                <a class="btn btn-primary btn-icon-spilt" href="{{ route('user.create') }}"> </i> Create Admin </a> 
+                <a class="btn btn-outline-success" href="{{ route('user.create') }}"><span class="icon text-dark-50"><i class="mdi mdi-plus-box"></i></span><span class="text">Admin</i></a>
+ 
             </div>
             </div>
 
@@ -27,8 +28,7 @@
     <thead class="table-dark">
         <tr>
             <th>User Id </th>
-            <th>Role Name    </th>
-            <th>Role Id   </th>
+            <th>Role</th>
             <th>Actions </th>
          
         </tr>
@@ -40,12 +40,12 @@
         <tr>
             <td> {{ $user->id }}</td>
             <td> {{ $user->role->name }}</td>
-            <td> {{ $user->role->id }}</td>
+            
 
             <td>
-                <a href="{{ route('user.show',$user->id) }}" class="btn btn-info btn-rounded"><span class="icon text-white-50"><i class="fas fa-trash"></i></span><span class="text">Show</i></a>
-                <a href="{{ route('user.edit',$user->id) }}" class="btn btn-warning btn-rounded"><span class="icon text-white-50"><i class="fas fa-trash"></i></span><span class="text">Edit</i></a>
-                <a href="{{ route('user.delete',$user->id) }}" class="btn btn-danger btn-rounded"><span class="icon text-white-50"><i class="fas fa-trash"></i></span><span class="text">Delete</i></a>
+                    <a href="{{ route('user.show',$user->id) }}" class="btn btn-outline-secondary"><span class="icon text-dark-50"><i class="mdi mdi-receipt"></i></span><span class="text">Show</i></a>
+                    <a href="{{ route('user.edit',$user->id) }}" class="btn btn-outline-warning"><span class="icon text-dark-50"><i class="mdi mdi-tooltip-edit"></i></span><span class="text">Edit</i></a>
+                    <a href="{{ route('user.delete',$user->id) }}" class="btn btn-outline-danger"><span class="icon text-dark-50"><i class="mdi mdi-delete-forever"></i></span><span class="text">Delete</i></a> </td>  
             </td>
         </tr>
 

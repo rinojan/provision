@@ -7,7 +7,7 @@
         <div class="card">
             <div class="card-header">
                 <div class="float-left">
-                    <h4 class="card-title">Edit - {{ $employee->firstname}}</h4>  <!-- $employee user details than varuthu-->
+                    <h4 class="card-title">Edit - {{ $employee->firstname. ' ' .$employee->lastname}}</h4>  <!-- $employee user details than varuthu-->
                 </div>
             </div>
 

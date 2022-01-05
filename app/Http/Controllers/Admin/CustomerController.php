@@ -46,7 +46,6 @@ class CustomerController extends Controller
     }
  
     public function edit(Customer $customer) {
-     
         return view('admin.customer.edit',compact('customer'));
     }
 
@@ -62,7 +61,6 @@ class CustomerController extends Controller
     }
 
     public function delete(Customer $customer) {
-     
         return view('admin.customer.delete',compact('customer'));
     }
     

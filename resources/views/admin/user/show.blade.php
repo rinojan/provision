@@ -17,7 +17,7 @@
     <div class="card-body">
         <table class="table">
             <tbody>
-                <tr><td> id:   {{ $user->id }}   </td></tr>
+                <tr><td> id:     {{ $user->id }}   </td></tr>
                 <tr><td> Role  : {{ $user->role->name }}   </td></tr>
                 <tr><td> Email : {{ $user->email }}  </td></tr>
             </tbody>

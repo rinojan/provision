@@ -22,7 +22,7 @@ class Employee extends Model
     ];
 
     public function jobs(){
-        return $this->belongsToMany(Job::class,'employee_job')->withPivot(['type','working_duration'.'salary']);
+        return $this->belongsToMany(Job::class,'employee_job')->withPivot(['type','working_duration','salary']);
         
     }
 

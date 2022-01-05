@@ -9,7 +9,7 @@
         <div class="card">
             <div class="card-header">
                 <div class="float-left">
-                    <h4 class="card-title">Edit- {{ $user}} </h4>
+                    <h4 class="card-title">Edit- {{ $user->email}} </h4>
                 </div>
              
             </div>

@@ -21,8 +21,6 @@ class EmployeeController extends Controller
 {
         
     public function index(){
-
-       
         $employees = User::with('role')->where('role_id','=',2)->orderBy('id','desc')->paginate(12); //??
         return view ('admin.employee.index',compact('employees'));
     }
@@ -53,7 +51,7 @@ class EmployeeController extends Controller
     public function store(EmployeeStoreRequest $request ){
     
         $data = $request->validated();
-    
+
         if(Auth::user()->role->name == "Admin") {
 
         $employee =Employee::create([     //id --user pogum
@@ -79,21 +77,19 @@ class EmployeeController extends Controller
     
         ]);
 
-        $employee->jobs()->attach([$employee->id=>['salary'=>$data['salary'],'job_id'=>$data['job_id'],'type'=>$data['type'],'working_duration'=>$data['working_duration'] , 'job_category_id'=>$data['job_category_id'] ]]);
-
         return redirect()->route('employee.index')->with('success','Employee details has been created successfuly!');
         } 
 
 
     }
     public function show(Employee $employee){
-
         return view('admin.employee.show',compact('employee'));
 
     }
 
     public function edit(Employee $employee){  //Employee model varala
 
+        $employee->load('jobs');
         $jobCategories = JobCategory::all();
         $jobs = Job::all();
         $districts = District::all();
@@ -103,7 +99,7 @@ class EmployeeController extends Controller
 
     }
 
-    public function update(User $employee,EmployeeUpdateRequest $request){  // user model ok va?
+    public function update(Employee $employee,EmployeeUpdateRequest $request){  // user model ok va?
         $data = $request->validated(); //validated
 
         if($request->input('password')){
@@ -118,7 +114,7 @@ class EmployeeController extends Controller
         return view('admin.employee.delete',compact('employee'));
 
     }
-    public function destroy(User $employee){  // User model?
+    public function destroy(Employee $employee){  // User model?
         $employee->delete();
         return redirect()->route('employee.index')->with('success', 'Employee  details has been deleted successfuly!');
     }
