@@ -1,2 +1,2 @@
-{!! Form::text ('title','Jobtitle') !!}
-{!! Form::select('category_id','JobCategory Id')->options($jobCategories) !!}
+{!! Form::text ('title','Job Title') !!}
+{!! Form::select('category_id','Jobcategory Name')->options($jobCategories) !!}

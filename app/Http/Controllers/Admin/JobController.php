@@ -35,20 +35,19 @@ class JobController extends Controller
 
                 ]);
                 
-        return redirect()->route('job.index')->with('success','Job details has been created successfuly!');
-            
+        return redirect()->route('job.index')->with('success','Job details has been created successfuly!');    
     
     }
 
     public function show(Job $job) {
-        return view('admin.job.show', compact('job'));
+        return view('admin.job.show',compact('job'));
     }
  
     public function edit(Job $job) {
 
         $jobCategories = JobCategory::all()->pluck('name','id')->toArray();
 
-        return view('admin.job.edit' ,compact('job','jobCategories'));
+        return view('admin.job.edit',compact('job','jobCategories'));
     }
 
     public function update(Job $job,JobUpdateRequest $request){
@@ -58,6 +57,7 @@ class JobController extends Controller
     }
     
     public function destroy(Job $job){
+        
         $job->delete();
         return redirect()->route('job.index')->with('success', 'job details has been deleted successfuly!');
     }

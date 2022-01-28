@@ -21,7 +21,7 @@ class EmployeeController extends Controller
 {
         
     public function index(){
-        $employees = User::with('role')->where('role_id','=',2)->orderBy('id','desc')->paginate(12); //??
+        $employees = User::with('role')->where('role_id','=',2)->orderBy('id','desc')->paginate(12); //??  user model la irunthu employee
         return view ('admin.employee.index',compact('employees'));
     }
 
@@ -49,12 +49,11 @@ class EmployeeController extends Controller
     }
 
     public function store(EmployeeStoreRequest $request ){
-    
         $data = $request->validated();
 
         if(Auth::user()->role->name == "Admin") {
 
-        $employee =Employee::create([     //id --user pogum
+        $employee =Employee::create([                                                                                  //id --user pogum //order employee parent 1//user child 2
             
                 'title'=>$data['title'],
                 'firstname'=>$data['firstname'],
@@ -66,14 +65,13 @@ class EmployeeController extends Controller
                 'district_id'=>$data['district_id'],
                 'province_id'=>$data['province_id'],
             
-
         ]);
         
         User::create([
-        'role_id'=>2,  //manual 
+        'role_id'=>2,   //manual 
         'email'=>$data['email'],
-        'password'=>Hash::make($data['password']), //??? 2 times
-        'employee_id'=>$employee->id, //mela irunthu create auto increment
+        'password'=>Hash::make($data['password']),                                                          //??? 2 times
+        'employee_id'=>$employee->id,                                                                   //mela irunthu create auto increment
     
         ]);
 
@@ -87,7 +85,7 @@ class EmployeeController extends Controller
 
     }
 
-    public function edit(Employee $employee){  //Employee model varala
+    public function edit(Employee $employee){                                                               //Employee model varala
 
         $employee->load('jobs');
         $jobCategories = JobCategory::all();
@@ -99,14 +97,37 @@ class EmployeeController extends Controller
 
     }
 
-    public function update(Employee $employee,EmployeeUpdateRequest $request){  // user model ok va?
-        $data = $request->validated(); //validated
+    public function update(Employee $employee,EmployeeUpdateRequest $request){
 
+        $data = $request->validated();                                                                                                  //validated
+        $user =User::where('employee_id','=',$employee->id)->value('id');             //uoutput cureent user id                                                                                       //user frngky employee_id employee model id                                 //id matum bcoz niraya model value id
         if($request->input('password')){
             $data['password']=Hash::make($request->input('password'));
-        }else{$data['password']=$employee->password;}
+        }else{$data['password']=$employee->user->password;}                                                                                 //user rltn
 
-        $employee->update($data);
+
+    Employee::whereId($employee->id)->update([                                                                              //id usr 2 model cnct emplye forin key refernce id /2 create so 2 update
+          
+            'title'=>$data['title'],
+            'firstname'=>$data['firstname'],
+            'lastname'=>$data['lastname'],
+            'nic'=>$data['nic'],
+            'address'=>$data['address'],
+            'mobileno'=>$data['mobileno'],
+            'gender'=>$data['gender'],
+            'district_id'=>$data['district_id'],
+            'province_id'=>$data['province_id'],
+    
+          ]);
+          
+    User::whereId($user)->update([                                                                              // mela id filter so $user mtm
+
+            'role_id'=>2,                                                                                           //manual 
+            'email'=>$data['email'],
+            'password'=>$data['password'],                                                                                       //??? 2 times
+            'employee_id'=>$employee->id, //
+      ]);
+
         return redirect()->route('employee.index')->with('success','Employee details has been update successfuly!');;
     }
 
@@ -114,11 +135,10 @@ class EmployeeController extends Controller
         return view('admin.employee.delete',compact('employee'));
 
     }
-    public function destroy(Employee $employee){  // User model?
+    public function destroy(Employee $employee){  
         $employee->delete();
         return redirect()->route('employee.index')->with('success', 'Employee  details has been deleted successfuly!');
     }
-
 
   
 }

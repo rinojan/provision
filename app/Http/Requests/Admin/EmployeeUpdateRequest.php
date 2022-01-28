@@ -3,6 +3,7 @@
 namespace App\Http\Requests\Admin;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class EmployeeUpdateRequest extends FormRequest
 {
@@ -24,10 +25,11 @@ class EmployeeUpdateRequest extends FormRequest
     public function rules()
     {
                    
-        $employee=$this->employee;
+        $employee=$this->employee->user; //dd panlm //employee rltn  user varible 2 update
+
         return [
           
-            'email'=>'required|email|unique:users',
+            'email'=>['required','email',Rule::unique('users')->ignore($employee)], //users table
             'title'=>'required',
             'firstname'=>'required',
             'lastname'=>'required',
@@ -35,11 +37,12 @@ class EmployeeUpdateRequest extends FormRequest
             'nic'=>'required',
             'mobileno'=>'required',
             'gender'=>'required',
-            'password'=>'required|confirmed|min:8',
+            'password'=>'nullable|confirmed|min:8',
             'province_id'=>'required',
             'district_id'=>'required',
          
             
+           
         
         ];
     }

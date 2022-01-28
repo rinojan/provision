@@ -17,7 +17,7 @@ class Job extends Model
     }
     
     public function employees(){
-        return $this->belongToMany(JobCategory::class,'employee_job')->withPivot(['type','working_duration','salary']); //alrdy job
+        return $this->belongsToMany(Employee::class,'employee_job')->withPivot(['type','working_duration','salary','job_category_id']); //alrdy job
     }
    
 }

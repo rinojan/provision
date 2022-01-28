@@ -16,7 +16,7 @@
     <div class="card-body">
         <table class="table">
             <tbody>
-                <tr> <td> </td> </tr>
+                <tr> <td>  {{$employee->jobs}} </td> </tr>
                 <tr> <td></td> </tr>
                 <tr> <td>  </td> </tr>
          

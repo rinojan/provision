@@ -46,6 +46,7 @@ $(document).ready(function(){
 
                     $("#district_id").empty(); //second time empty aakum
                     $("#district_id").append('<option> Select District </option>');//irukurathoda sekurarthu
+                    
                     $.each(res,function(key,value){ // each means foreach response looap
 
                         if(district==value.id){
@@ -62,7 +63,7 @@ $(document).ready(function(){
                     $('#district_id').empty();
                 }
             }
-            });
+        });
 
         
         }else{

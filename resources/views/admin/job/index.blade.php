@@ -12,7 +12,7 @@
             </div>
 
             <div class="float-right">
-                <a class="btn btn-primary btn-icon-spilt" href="{{ route('job.create') }}"> </i> Create Job</a> 
+            <a class="btn btn-success btn-rounded"href="{{ route('job.create') }}"><span class="icon text-dark-50"><i class="mdi mdi-plus-box"></i></span><span class="text">Job</i></a>
             </div>
             </div>
 

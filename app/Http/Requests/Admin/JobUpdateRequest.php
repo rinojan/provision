@@ -3,6 +3,7 @@
 namespace App\Http\Requests\Admin;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 
 class JobUpdateRequest extends FormRequest
@@ -27,7 +28,7 @@ class JobUpdateRequest extends FormRequest
         $job=$this->job;
         return [
 
-            'title'=>'required|string|max:255|unique:jobs',
+            'title'=>['required',Rule::unique('jobs')->ignore($job)], //no need type
             'category_id'=> 'required',
 
            

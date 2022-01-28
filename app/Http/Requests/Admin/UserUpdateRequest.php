@@ -25,10 +25,10 @@ class UserUpdateRequest extends FormRequest
      */
     public function rules()
     {
-        $user=$this->user;
+        $user=$this->user; //this->user controller la 2nd
         return [
 
-            'email'=>['required','email',Rule::unique('users')->ignore($user)],
+            'email'=>['required','email',Rule::unique('users')->ignore($user)], //here inside  email is a type
             'password'=>'nullable|confirmed|string|min:8',
             
         ];

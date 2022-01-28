@@ -12,7 +12,7 @@
             </div>
 
             <div class="card-body">
-                {!! Form::open()->fill($employee)->route('employee.job.update',[$employee->id])->method('patch') !!} <!-- employee relation -->
+                {!! Form::open()->fill($employee,$job)->route('employee.job.update',[$employee->id])->method('patch') !!} <!-- employee relation -->
                 @include('admin.employee_job._form')
                 <div class="row">
                     <div class="col-md-12">

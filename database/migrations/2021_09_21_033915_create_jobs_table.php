@@ -20,7 +20,6 @@ class CreateJobsTable extends Migration
             $table->rememberToken();
             $table->timestamps();
 
-           
             $table->foreign('category_id')->references('id')->on('job_categories')->onDelete('cascade');
         });
     }

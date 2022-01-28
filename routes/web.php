@@ -56,13 +56,17 @@ Route::get('/', function () {
             Route::get('/job/create','EmployeeJobController@create')->name('employee.job.create');
             Route::post('/job/store','EmployeeJobController@store')->name('employee.job.store');
             Route::get('/job/show','EmployeeJobController@show')->name('employee.job.show');
-            Route::get('/job/edit','EmployeeJobController@edit')->name('employee.job.edit');
             Route::patch('/job/update','EmployeeJobController@update')->name('employee.job.update');
             Route::get('/job/delete','EmployeeJobController@delete')->name('employee.job.delete');
             Route::delete('/job/destroy','EmployeeJobController@destroy')->name('employee.job.destroy');
-        
-                });
+
+            Route::group(['prefix'=>'{job}'], function () {
+                Route::get('/job/edith','EmployeeJobController@edith')->name('employee.job.edith');
+                Route::get('/job/editd','EmployeeJobController@editd')->name('employee.job.editd');
+
+                 });
             });
+        });
 
         Route::group(['prefix'=>'customers'],function () {
             Route::get('/','CustomerController@index')->name('customer.index');

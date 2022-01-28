@@ -3,6 +3,7 @@
 namespace App\Http\Requests\Admin;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 
 class JobCategoryUpdateRequest extends FormRequest
@@ -24,10 +25,12 @@ class JobCategoryUpdateRequest extends FormRequest
      */
     public function rules()
     {
-        $jobCategories=$this->jobCategories;
+        $jobcategory=$this->jobcategory; //2nd cntlr
         return [
 
-            'name'=>'required|string|max:255',
+            'name'=>['required',Rule::unique('job_categories')->ignore($jobcategory)], //type email
+        
+        
         ];
     }
 }

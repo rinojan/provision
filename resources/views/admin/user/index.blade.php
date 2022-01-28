@@ -12,7 +12,7 @@
             </div>
 
             <div class="float-right">
-                <a class="btn btn-outline-success" href="{{ route('user.create') }}"><span class="icon text-dark-50"><i class="mdi mdi-plus-box"></i></span><span class="text">Admin</i></a>
+           <a class="btn btn-success btn-rounded"href="{{ route('user.create') }}"><span class="icon text-dark-50"><i class="mdi mdi-plus-box"></i></span><span class="text">Admin</i></a>
  
             </div>
             </div>
@@ -43,9 +43,9 @@
             
 
             <td>
-                    <a href="{{ route('user.show',$user->id) }}" class="btn btn-outline-secondary"><span class="icon text-dark-50"><i class="mdi mdi-receipt"></i></span><span class="text">Show</i></a>
-                    <a href="{{ route('user.edit',$user->id) }}" class="btn btn-outline-warning"><span class="icon text-dark-50"><i class="mdi mdi-tooltip-edit"></i></span><span class="text">Edit</i></a>
-                    <a href="{{ route('user.delete',$user->id) }}" class="btn btn-outline-danger"><span class="icon text-dark-50"><i class="mdi mdi-delete-forever"></i></span><span class="text">Delete</i></a> </td>  
+                    <a href="{{ route('user.show',$user->id) }}" class="btn btn-info btn-rounded"><span class="icon text-dark-50"><i class="mdi mdi-receipt"></i></span><span class="text">Show</i></a>
+                    <a href="{{ route('user.edit',$user->id) }}" class="btn btn-warning btn-rounded"><span class="icon text-dark-50"><i class="mdi mdi-tooltip-edit"></i></span><span class="text">Edit</i></a>
+                    <a href="{{ route('user.delete',$user->id) }}" class="btn btn-danger btn-rounded"><span class="icon text-dark-50"><i class="mdi mdi-delete-forever"></i></span><span class="text">Delete</i></a> </td>  
             </td>
         </tr>
 

@@ -21,26 +21,19 @@ class CustomerController extends Controller
       
     }
 
-
     public function store(CustomerStoreRequest $request){
         $data = $request->validated();
 
         $customer =Customer::create([
-
             'firstname'=>$data['firstname'],
             'lastname' =>$data['lastname'],
             'address'  =>$data['address'],
             'nic'      =>$data['nic'],
             'mobileno' =>$data['mobileno'],
-
-        ]);
-
-
-        
+        ]); 
         return redirect()->route('cutomer.index')->with('success','customer details has been created successfuly!');
     } 
 
-    
     public function show(Customer $customer) {
         return view('admin.customer.show',compact('customer'));
     }
@@ -64,5 +57,4 @@ class CustomerController extends Controller
         return view('admin.customer.delete',compact('customer'));
     }
     
- 
 }

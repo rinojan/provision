@@ -19,14 +19,13 @@
     <div class="card-body">
         <table class="table">
             <tbody>
-                <tr> <td> id    :       {{$customer->id}}          </td> </tr>
+                <tr> <td> Customer id:  {{$customer->id}}          </td> </tr>
                 <tr> <td> Email :       {{$customer->user->email}} </td> </tr>
                 <tr> <td> Firstname :   {{$customer->firstname}}   </td> </tr>
                 <tr> <td> Lastname  :   {{$customer->lastname}}    </td> </tr>
                 <tr> <td> Mobileno  :   {{$customer->mobileno}}    </td> </tr>
                 <tr> <td> Address   :   {{$customer->address }}    </td> </tr>
                 <tr> <td> Nic   :       {{$customer->nic}}         </td> </tr>
-                <tr> <td> Gender :      {{$customer->gender}}      </td> </tr>
                
 
             

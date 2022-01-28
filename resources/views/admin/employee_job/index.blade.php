@@ -12,7 +12,7 @@
             </div>
 
             <div class="float-right">
-                <a class="btn btn-primary btn-icon-spilt" href="{{ route('employee.job.create',$employee->id) }}"> </i> Employee Job </a> 
+            <a class="btn btn-success btn-rounded"href="{{ route('employee.job.create',$employee->id) }}"><span class="icon text-dark-50"><i class="mdi mdi-plus-box"></i></span><span class="text">Employee Job</i></a>
             </div>
             </div>
 
@@ -27,22 +27,29 @@
         <thead class="table-dark">
             <tr>
                 <th>job id </th>
-                <th>job name    </th>
+                <th>job</th>
+                <th> Work Duration</th>
+                <th> Salary</th>
                 <th>Actions </th>
-                <th> </th>
+               
             </tr>
         </thead>
 
         <tbody>
                 @foreach($employee->jobs as $job)
             <tr>
-                <td>{{$job->id}} </td>
+                <td>{{$job->pivot->job_id}} </td>
                 <td>{{$job->title}}</td>  <!-- user etails than employee name  varuthu-->
+                <td>{{$job->pivot->type}}</td>
                 <td>{{$job->pivot->salary}}</td>
                 <td>
-                    <a href="{{ route('employee.job.show',$employee->id) }}" class="btn btn-outline-secondary""><span class="icon-text-dark-50"><i class="mdi mdi-receipt"></i></span><span class="text">Show</i></a>
-                    <a href="{{ route('employee.job.edit',$employee->id) }}" class="btn btn-outline-warning"><span class="icon text-dark-50"><i class="mdi mdi-tooltip-edit"></i></span><span class="text">Edit</i></a>
-                    <a href="{{ route('employee.job.delete',$employee->id) }}" class="btn btn-outline-danger"><span class="icon text-dark-50"><i class="mdi mdi-delete-forever"></i></span><span class="text">Delete</i></a> </td>
+                    <a href="{{ route('employee.job.show',[$employee->id,$job->pivot->job_id]) }}" class="btn btn-info btn-rounded"><span class="icon text-dark-50"><i class="mdi mdi-receipt"></i></span><span class="text">Show</i></a>
+                    @if($job->pivot->type=="hours")
+                    <a href="{{ route('employee.job.edith',[$employee->id,$job->pivot->job_id]) }}" class="btn btn-warning btn-rounded"><span class="icon text-dark-50"><i class="mdi mdi-tooltip-edit"></i></span><span class="text">Edit</i></a>
+                    @else
+                    <a href="{{ route('employee.job.editd',[$employee->id,$job->pivot->job_id]) }}" class="btn btn-warning btn-rounded"><span class="icon text-dark-50"><i class="mdi mdi-tooltip-edit"></i></span><span class="text">Edit</i></a>
+                    @endif
+                    <a href="{{ route('employee.job.delete',[$employee->id,$job->pivot->job_id]) }}" class="btn btn-danger btn-rounded"><span class="icon text-dark-50"><i class="mdi mdi-delete-forever"></i></span><span class="text">Delete</i></a> </td>  
             </tr>
                 @endforeach
         

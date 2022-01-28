@@ -12,7 +12,7 @@
             </div>
 
             <div class="float-right">
-                <a class="btn btn-primary btn-icon-spilt" href="{{ route('jobcategory.create') }}"> </i> Create JobCategory </a> 
+            <a class="btn btn-success btn-rounded"href="{{ route('jobcategory.create') }}"><span class="icon text-dark-50"><i class="mdi mdi-plus-box"></i></span><span class="text">Jobcategory</i></a>
             </div>
             </div>
 
@@ -28,7 +28,7 @@
         <tr>
             <th> Job Category Id </th>
             <th> Job Category Name  </th>
-            <th>Actions </th>
+            <th> Actions </th>
          
         </tr>
 
