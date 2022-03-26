@@ -8,8 +8,6 @@
               <i class="menu-icon mdi mdi-grid"></i>
          
               <!-- <i class="fas fa-tachometer-alt"></i>  -->
-
-
               <span class="menu-title">Dashboard</span>
             </a>
         
@@ -40,13 +38,8 @@
               </ul>
             </div>
           </li>
-          
           </li>
-          
-     
 
-
-          
           <li class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="#form-user" aria-expanded="false" aria-controls="form-user">
             <i class=" menu-icon mdi mdi-account-multiple"> </i>

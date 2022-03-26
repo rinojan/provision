@@ -27,7 +27,7 @@
         <thead class="table-dark">
             <tr>
                 <th>Employee  Id </th>
-                <th>Role</th>
+                <th> Name </th>
                 <th>user id </th>
                 <th>Actions </th>
                 <th>Job</th>
@@ -39,7 +39,7 @@
                 @foreach ($employees as $employee) 
             <tr>
                 <td> {{ $employee->employee_id}}</td> <!--user model la employee controler index blade -->
-                <td> {{ $employee->role->name }}</td>  <!-- user etails than employee name  varuthu-->
+                <td> {{ $employee->employee->firstname }}</td>  <!-- user etails than employee name  varuthu-->
                 <td> {{ $employee->id}}
                 <td>
                     <a href="{{ route('employee.show',$employee->employee_id) }}"class="btn btn-info btn-rounded"><span class="icon text-dark-50"><i class="mdi mdi-receipt"></i></span><span class="text">Show</i></a>
@@ -51,8 +51,7 @@
 
                 </tr>
 
-
-            @endforeach
+                @endforeach
 
         </tbody>
     </table>

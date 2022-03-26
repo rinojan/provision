@@ -2,9 +2,6 @@
 @section('title','customer-show')
 @section('content')
 
-
-
-
 <div class="row">
     <div class="col-6 text-dark">
         <div class="card shadow p-3 mb-5 bg-white rounded border-primary">
@@ -14,7 +11,6 @@
                 </div>   
             </div>
         </div>
-
 
     <div class="card-body">
         <table class="table">
@@ -26,16 +22,10 @@
                 <tr> <td> Mobileno  :   {{$customer->mobileno}}    </td> </tr>
                 <tr> <td> Address   :   {{$customer->address }}    </td> </tr>
                 <tr> <td> Nic   :       {{$customer->nic}}         </td> </tr>
-               
-
-            
+        
             </tbody>
          </table>
     </div>
     </div>
 </div>
-
-
-
-
 @endsection

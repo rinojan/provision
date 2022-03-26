@@ -8,17 +8,14 @@ use App\Http\Requests\Admin\CustomerStoreRequest;
 use App\Http\Requests\Admin\CustomerUpdateRequest;
 use illuminate\Support\Facades\Hash;
 
-
 use App\Models\User;
 use App\Models\Customer;
-
 
 class CustomerController extends Controller
 {
     public function index(){
-        $customers = User::with('role')->where('role_id','=',3)->orderBy('id','desc')->paginate(12);
+        $customers = User::with('role')->where('role_id','=',3)->orderBy('id','desc')->paginate(12);//asc
         return view ('admin.customer.index',compact('customers'));
-      
     }
 
     public function store(CustomerStoreRequest $request){
@@ -30,11 +27,11 @@ class CustomerController extends Controller
             'address'  =>$data['address'],
             'nic'      =>$data['nic'],
             'mobileno' =>$data['mobileno'],
-        ]); 
+        ]);
         return redirect()->route('cutomer.index')->with('success','customer details has been created successfuly!');
     } 
 
-    public function show(Customer $customer) {
+    public function show(Customer $customer){
         return view('admin.customer.show',compact('customer'));
     }
  

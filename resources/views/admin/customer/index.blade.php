@@ -5,14 +5,11 @@
 <div class="row">
     <div class="col-12 text-dark">
         <div class="card shadow p-3 mb-5 bg-white rounded border-info">
-            <div class="card-header rounded border-primary">
-                
+            <div class="card-header rounded border-primary"> 
             <div class="float-left">
                 <h2> Customer Details </h2>
             </div>
-
             <div class="float-right">
-               
             </div>
             </div>
 
@@ -29,15 +26,12 @@
             <th>Customer Id </th>
             <th>Role</th>
             <th>Actions </th>
-         
         </tr>
 
     </thead>
     <tbody>
             @foreach ($customers as $customer) 
-
         <tr>
-
             <td> {{ $customer->customer->id}}</td>
             <td> {{ $customer->role->name }}</td>
             <td>
@@ -49,8 +43,6 @@
 
         @endforeach
     </tbody>
-    
 </table>
 </div>
-
 @endsection

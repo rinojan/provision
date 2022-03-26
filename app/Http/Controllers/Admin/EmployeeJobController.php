@@ -36,7 +36,6 @@ class EmployeeJobController extends Controller
 
     public function store(Employee $employee, EmployeeJobStoreRequest $request){
         $data = $request->validated();
-    
         $employee->jobs()->attach([$employee->id=>['salary'=>$data['salary'],'job_id'=>$data['job_id'],'type'=>$data['type'],'working_duration'=>$data['working_duration'] , 'job_category_id'=>$data['job_category_id'] ]]);
 
         return redirect()->route('employee.job.index',$employee->id)->with('success','Employee Job details has been created successfuly!');
@@ -45,7 +44,6 @@ class EmployeeJobController extends Controller
     public function show(Employee $employee){
             return view ('admin.employee_job.show',compact('employee'));
         }
-    
 
     public function edith(Employee $employee,Job $job){
         $type ='hours';
@@ -54,7 +52,6 @@ class EmployeeJobController extends Controller
         $employee->load('jobs'); //relation load
         return view ('admin.employee_job.edit', compact('employee','jobs','jobCategories','job','type'));
     }
-
     
     public function editd(Employee $employee,Job $job){
         $type ='day';
@@ -64,20 +61,19 @@ class EmployeeJobController extends Controller
             return view ('admin.employee_job.edit', compact('employee','jobs','jobCategories','job','type'));
     }
     
-  
     public function update(Employee $employee,EmployeeJobUpdateRequest $request){
-        $data = $request->validated();  // $request mela irunthu varuthu validated
+        $data = $request->validated();                                                                  // $request mela irunthu varuthu validated
         $employee->update($data);
         return redirect()->route('employee.job.index',$employee->id)->with('success','Employee Job details has been update successfuly!');;
     }
 
-    
-    public function delete(Employee $employee,Job $job){
-        return view('admin.employee_job.delete',compact('employee','job'));
+    public function delete(Employee $employee,Job $job, $type){
+        return view('admin.employee_job.delete',compact('employee','job','type'));
 
     }
-    public function destroy(Employee $employee,Job $job){ 
-        $employee->jobs()->detach($job);
+    public function destroy(Employee $employee,Job $job, $type){
+  
+        $employee->jobs()->wherePivot('type',$type)->detach($job->id);
 
         return redirect()->route('employee.job.index',$employee->id)->with('success', 'Employee_job  details has been deleted successfuly!');
     }

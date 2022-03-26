@@ -57,12 +57,17 @@ Route::get('/', function () {
             Route::post('/job/store','EmployeeJobController@store')->name('employee.job.store');
             Route::get('/job/show','EmployeeJobController@show')->name('employee.job.show');
             Route::patch('/job/update','EmployeeJobController@update')->name('employee.job.update');
-            Route::get('/job/delete','EmployeeJobController@delete')->name('employee.job.delete');
-            Route::delete('/job/destroy','EmployeeJobController@destroy')->name('employee.job.destroy');
 
             Route::group(['prefix'=>'{job}'], function () {
                 Route::get('/job/edith','EmployeeJobController@edith')->name('employee.job.edith');
                 Route::get('/job/editd','EmployeeJobController@editd')->name('employee.job.editd');
+               
+                Route::group(['prefix'=>'{type}'], function(){
+
+                    Route::get('/job/delete','EmployeeJobController@delete')->name('employee.job.delete');
+                    Route::delete('/job/destroy','EmployeeJobController@destroy')->name('employee.job.destroy');
+    
+                });
 
                  });
             });
@@ -113,6 +118,22 @@ Route::get('/', function () {
                 });
         
             });
+        
+            Route::group(['prefix'=>'charters'], function () {
+                Route::get('/','CharterController@index')->name('charter.index');
+                Route::get('/create','CharterController@create')->name('charter.create');
+                Route::post('/store','CharterController@store')->name('charter.store');
+    
+            Route::group(['prefix'=>'{charter}'], function () {
+              
+                Route::get('/','CharterController@show')->name('charter.show');
+
+                    });
+                });
+    
+
+
+        
 
 });
 

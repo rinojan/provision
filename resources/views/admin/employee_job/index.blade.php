@@ -49,7 +49,7 @@
                     @else
                     <a href="{{ route('employee.job.editd',[$employee->id,$job->pivot->job_id]) }}" class="btn btn-warning btn-rounded"><span class="icon text-dark-50"><i class="mdi mdi-tooltip-edit"></i></span><span class="text">Edit</i></a>
                     @endif
-                    <a href="{{ route('employee.job.delete',[$employee->id,$job->pivot->job_id]) }}" class="btn btn-danger btn-rounded"><span class="icon text-dark-50"><i class="mdi mdi-delete-forever"></i></span><span class="text">Delete</i></a> </td>  
+                    <a href="{{ route('employee.job.delete',[$employee->id,$job->pivot->job_id,$job->pivot->type]) }}" class="btn btn-danger btn-rounded"><span class="icon text-dark-50"><i class="mdi mdi-delete-forever"></i></span><span class="text">Delete</i></a> </td>  
             </tr>
                 @endforeach
         

@@ -2,7 +2,7 @@
 @section('title','employee-job-delete')
 @section('content')
 
-{!! Form::open()->route('employee.job.destroy',[$employee->id,$job->id])->method('delete') !!}
+{!! Form::open()->route('employee.job.destroy',[$employee->id,$job->id,$type])->method('delete') !!}
 <div> 
     <h4> Are sure you want to delete?</h4>
 </div>

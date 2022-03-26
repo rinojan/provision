@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\Hash;
 use illuminate\Support\Facades\Auth;
+use App\Models\Job;
 
 class DashboardController extends Controller
 {
@@ -19,7 +20,11 @@ class DashboardController extends Controller
             return view('employeedashboard');
                   break;
             case 'Customer':
-            return view('customerdashboard');
+            $jobs =Job::with('employees')->get();
+            
+            
+            
+            return view('customerdashboard',compact('jobs'));
                   break;
            
         }         
