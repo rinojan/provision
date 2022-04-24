@@ -10,7 +10,7 @@
                   <button type="button" name="search" id="search-btn" class="btn btn-flat">
                     <i class="mdi mdi-magnify"></i>
                   </button>
-                  <input type="text" name="query" id="search-input" class="form-control" placeholder="Search here... "
+                  <input type="text" name="query" id="search-input" class="form-control" placeholder="Search by name "
                     autofocus autocomplete="off" />
                 </div>
                 <div id="search-results-container">

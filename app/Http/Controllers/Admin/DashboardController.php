@@ -9,6 +9,8 @@ use Illuminate\Support\Facades\Hash;
 use illuminate\Support\Facades\Auth;
 use App\Models\Job;
 
+
+
 class DashboardController extends Controller
 {
        public function index(){
@@ -21,6 +23,7 @@ class DashboardController extends Controller
                   break;
             case 'Customer':
             $jobs =Job::with('employees')->get();
+   
             
             
             

@@ -7,9 +7,10 @@
         <div class="card shadow p-3 mb-5 bg-white rounded border-info">
             <div class="card-header rounded border-primary"> 
             <div class="float-left">
-                <h2> Hire Details </h2>
+                <h2>Employee: {{$charter->firstname}} </h2>
             </div>
             <div class="float-right">
+
             </div>
             </div>
 
@@ -21,27 +22,32 @@
     @endif
 
 <table class="table table-striped">
-    <thead class="table-dark">
+    <thead class="thead-dark">
         <tr>
-            <th> job id </th>
+            <th> job category</th>
             <th> job name</th>
-            <th> Actions </th>
+            <th> salary</th>
+            <th> type</th>
+            <th> working_duration </th>
+            <th> Actions</th>
         </tr>
 
     </thead>
-    </thead>
-    <tbody>
-                @foreach($jobs as $job)
+    <tbody >
+            @foreach ($charter->jobs as $chat) 
         <tr>
-            <td> {{$job->id}}</td>
-            <td> {{$job->title}}</td>
-            <td>
-            <a href="{{ route('charter.show',$job->id) }}" class="btn btn-info btn-rounded"><span class="icon text-dark-50"><i class="mdi mdi-receipt"></i></span><span class="text">Show</i></a>
-            <a href="{{ route('charter.show',$job->id) }}" class="btn btn-info btn-rounded"><span class="icon text-dark-50"><i class="mdi mdi-receipt"></i></span><span class="text">Apply</i></a>
-            </td>
-        </tr>
+            <td> {{$chat->jobcategory->name}}</td>
+            <td> {{$chat->title}}</td>
+            <td> {{$chat->pivot->salary}} </td>
+            <td> {{$chat->pivot->type}} </td>
+            <td> {{$chat->pivot->working_duration}} </td>
 
-                @endforeach
+            <td> <a href="{{ route('charter.create',$charter->id) }}" class="btn btn-info btn-rounded"><span class="icon text-dark-50"><i class="mdi mdi-receipt"></i></span><span class="text">Apply</i></a> </td>
+
+        </tr>
+           
+       @endforeach
+              
     </tbody>
 </table>
 </div>

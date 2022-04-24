@@ -71,6 +71,8 @@ Route::get('/', function () {
 
                  });
             });
+
+
         });
 
         Route::group(['prefix'=>'customers'],function () {
@@ -118,19 +120,21 @@ Route::get('/', function () {
                 });
         
             });
-        
-            Route::group(['prefix'=>'charters'], function () {
+
+            
+                 
+            Route::group(['prefix'=>'charters/{charter}'], function () {
                 Route::get('/','CharterController@index')->name('charter.index');
                 Route::get('/create','CharterController@create')->name('charter.create');
                 Route::post('/store','CharterController@store')->name('charter.store');
     
-            Route::group(['prefix'=>'{charter}'], function () {
               
-                Route::get('/','CharterController@show')->name('charter.show');
+                Route::get('/show','CharterController@show')->name('charter.show');
 
-                    });
+               
                 });
     
+       
 
 
         
