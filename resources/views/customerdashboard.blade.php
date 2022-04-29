@@ -39,16 +39,19 @@
                         </div>
                         <div class="media-body align-self-center">
                           <h6> </h6>
-                          <h3 class="mb-6 text-dark font-weight-medium"> {{$job->title}} {{$Job1->created_at}}</h3> 
+                          <h3 class="mb-6 text-dark font-weight-medium"> {{$job->title}} </h3> <br/>
                           <h6 class="mb-2 text-dark font-weight-medium">Name : {{$job1->title}}.{{$job1->firstname}}</h6>
                           <h6 class="mb-2 text-dark font-weight-medium">Location : {{App\Models\District::whereId($job1->district_id)->value('name')}} </h6>
+                          <h6 class="mb-2 text-dark font-weight-medium">  Published: {{ $date =$job1->created_at->format('Y.m.d')}} </h6>
+                          <h6 class="mb-2 text-dark font-weight-medium" >  Ratings &#9733 </h6>
+
 
                          <!-- <h6 class="mb-3 text-dark font-weight-medium"> {{$job->id}}</h6> -->
 
                          
                           <p class="float-md-right"><span class="text-dark mr-2"></span>
-                          <a href="{{ route('charter.index',$job1->id)}}" class="btn btn-success btn-rounded"><span class="icon text-dark-50"><i class="mdi mdi-expand-all-outline"></i></span><span class="text"> View</i></a>
-                          <a href="{{ route('charter.index',$job1->id)}}" class="btn btn-success btn-rounded"><span class="icon text-dark-50"><i class="mdi mdi-expand-all-outline"></i></span><span class="text"> Apply</i></a> 
+                          <a href="{{ route('charter.index',['charter'=>$job1->id,'chart'=>$job->id])}}" class="btn btn-success btn-rounded"><span class="icon text-dark-50"><i class="mdi mdi-expand-all-outline"></i></span><span class="text"> View</i></a>
+                          <a href="{{ route('charter.index',['charter'=>$job1->id,'chart'=>$job->id])}}" class="btn btn-success btn-rounded"><span class="icon text-dark-50"><i class="mdi mdi-expand-all-outline"></i></span><span class="text"> Apply</i></a> 
 
 
                         </div>

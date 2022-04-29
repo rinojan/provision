@@ -34,15 +34,15 @@
 
     </thead>
     <tbody >
-            @foreach ($charter->jobs as $chat) 
+            @foreach ($charter->jobs as $chart) 
         <tr>
-            <td> {{$chat->jobcategory->name}}</td>
-            <td> {{$chat->title}}</td>
-            <td> {{$chat->pivot->salary}} </td>
-            <td> {{$chat->pivot->type}} </td>
-            <td> {{$chat->pivot->working_duration}} </td>
+            <td> {{$chart->jobcategory->name}}</td>
+            <td> {{$chart->title}}</td>
+            <td> {{$chart->pivot->salary}} </td>
+            <td> {{$chart->pivot->type}} </td>
+            <td> {{$chart->pivot->working_duration}} </td>
 
-            <td> <a href="{{ route('charter.create',$charter->id) }}" class="btn btn-info btn-rounded"><span class="icon text-dark-50"><i class="mdi mdi-receipt"></i></span><span class="text">Apply</i></a> </td>
+            <td> <a href="{{ route('charter.create',['charter'=>$charter->id,'chart'=>$chart->id]) }}" class="btn btn-info btn-rounded"><span class="icon text-dark-50"><i class="mdi mdi-receipt"></i></span><span class="text">Apply</i></a> </td>
 
         </tr>
            

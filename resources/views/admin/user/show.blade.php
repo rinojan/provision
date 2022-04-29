@@ -8,7 +8,7 @@
         <div class="card shadow p-3 mb-5 bg-white rounded border-primary">
             <div class="card-header rounded border-primary">
                 <div class="float-left">
-                <a href="{{route('user.index')}}" class="btn btn-primary btn-circle"><i class="far fa-arrow-left">back</i></a>
+                <a href="{{route('user.index')}}" class="btn btn-primary btn-circle"><i class="menu-icon mdi mdi-backspace">back</i></a>
                 </div>   
             </div>
         </div>

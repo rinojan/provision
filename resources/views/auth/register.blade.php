@@ -142,7 +142,7 @@
               <div class="card">
                 <div class="card-header bg-primary">
                   <div class="app-brand">
-                    <a href="/index.html">
+                    <a href="/">
                       <svg class="brand-icon" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid" width="30"
                         height="33" viewBox="0 0 30 33">
                         <g fill="none" fill-rule="evenodd">
@@ -150,42 +150,44 @@
                           <path class="logo-fill-white" fill="#FFF" d="M11 4v25l8 4V0z" />
                         </g>
                       </svg>
-                      <span class="brand-name">Customer Registration</span>
+                      <span class="brand-name">Registration</span>
                     </a>
                   </div>
                 </div>
                 <div class="card-body p-5">
                   <h4 class="text-dark mb-5">Sign Up</h4>
-                  <form action="/index.html">
+                  <form method="POST" action="{{ route('register') }}">
+                      @csrf
+                      
                     <div class="row">
                       <div class="form-group col-md-12 mb-4">
                         <input type="text" class="form-control input-lg" id="name" aria-describedby="nameHelp" placeholder="Name">
                       </div>
                       <div class="form-group col-md-12 mb-4">
-                        <input type="email" class="form-control input-lg" id="email" aria-describedby="emailHelp" placeholder="Firstname">
+                        <input type="text" class="form-control input-lg" id="firstname" aria-describedby="emailHelp" placeholder="Firstname">
                       </div>
 
                       <div class="form-group col-md-12 mb-4">
-                        <input type="email" class="form-control input-lg" id="email" aria-describedby="emailHelp" placeholder="Lastname">
+                        <input type="text" class="form-control input-lg" id="lastname" aria-describedby="emailHelp" placeholder="Lastname">
                       </div>
 
                       <div class="form-group col-md-12 mb-4">
-                        <input type="email" class="form-control input-lg" id="email" aria-describedby="emailHelp" placeholder="Address">
+                        <input type="text" class="form-control input-lg" id="address" aria-describedby="emailHelp" placeholder="Address">
                       </div>
 
                       <div class="form-group col-md-12 mb-4">
-                        <input type="email" class="form-control input-lg" id="email" aria-describedby="emailHelp" placeholder="NIC">
+                        <input type="text" class="form-control input-lg" id="nic" aria-describedby="emailHelp" placeholder="NIC">
                       </div>
 
                       <div class="form-group col-md-12 mb-4">
-                        <input type="email" class="form-control input-lg" id="email" aria-describedby="emailHelp" placeholder="Mobile No">
+                        <input type="text" class="form-control input-lg" id="mobileno" aria-describedby="emailHelp" placeholder="Mobile No">
                       </div>
 
                       <div class="form-group col-md-12 ">
                         <input type="password" class="form-control input-lg" id="password" placeholder="Password">
                       </div>
                       <div class="form-group col-md-12 ">
-                        <input type="password" class="form-control input-lg" id="cpassword" placeholder="Confirm Password">
+                        <input type="password" class="form-control input-lg" id="password_confirmation" placeholder="Confirm Password">
                       </div>
                       <div class="col-md-12">
                         <div class="d-inline-block mr-3">
@@ -198,7 +200,7 @@
                         </div>
                         <button type="submit" class="btn btn-lg btn-primary btn-block mb-4">Sign Up</button>
                         <p>Already have an account?
-                          <a class="text-blue" href="sign-in.html">Sign in</a>
+                          <a class="text-blue" href="{{ route('login') }}">Sign in</a>
                         </p>
                       </div>
                     </div>

@@ -16,4 +16,4 @@
   <link id="sleek-css" rel="stylesheet" href="{{ asset('assets/css/sleek.css') }}" />
 
   <!-- FAVICON -->
-  <link href="{{ asset('assets/img/favicon.png') }} " rel="shortcut icon" />
+  <link href="{{ asset ('assets/img/favicon.png') }} " rel="shortcut icon" />

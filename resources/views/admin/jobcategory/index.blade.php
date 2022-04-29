@@ -45,9 +45,9 @@
            
 
             <td>
-            <a href="{{ route('jobcategory.show',$jobcategory->id) }}" class="btn btn-info btn-rounded"><span class="icon text-white-50"><i class="fas fa-trash"></i></span><span class="text">Show</i></a>
-            <a href="{{ route('jobcategory.edit',$jobcategory->id) }}" class="btn btn-warning btn-rounded"><span class="icon text-white-50"><i class="fas fa-trash"></i></span><span class="text">Edit</i></a>
-            <a href="{{ route('jobcategory.delete',$jobcategory->id) }}" class="btn btn-danger btn-rounded"><span class="icon text-white-50"><i class="fas fa-trash"></i></span><span class="text">Delete</i></a>
+            <a href="{{ route('jobcategory.show',$jobcategory->id) }}" class="btn btn-info btn-rounded"><span class="icon text-dark-50"><i class="mdi mdi-receipt"></i></span><span class="text">Show</i></a>
+            <a href="{{ route('jobcategory.edit',$jobcategory->id) }}" class="btn btn-warning btn-rounded"><span class="icon text-dark-50"><i class="mdi mdi-tooltip-edit"></i></span><span class="text">Edit</i></a>
+            <a href="{{ route('jobcategory.delete',$jobcategory->id) }}" class="btn btn-danger btn-rounded"><span class="icon text-dark-50"><i class="mdi mdi-delete-forever"></i></span><span class="text">Delete</i></a>
             </td>
         </tr>
         @endforeach

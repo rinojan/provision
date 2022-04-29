@@ -30,7 +30,7 @@
               <ul class="nav sidebar-inner" id="sidebar-menu">
                 
                   <li  class="has-sub active expand" >
-                    <a class="sidenav-item-link" href="{{ route ('dashboard')}}" data-toggle="collapse" data-target="#dashboard"
+                    <a class="sidenav-item-link" href="{{route('dashboard')}}" data-toggle="collapse" data-target="#dashboard"
                       aria-expanded="false" aria-controls="dashboard">
                       <i class="mdi mdi-view-dashboard-outline"></i>
                       <span class="nav-text">Dashboard</span> <b class="caret"></b>
@@ -49,27 +49,13 @@
                       <div class="sub-menu">
                     
                             <li >
-                              <a class="sidenav-item-link" href="chartjs.html">
-                                <span class="nav-text">Status</span>
+                              <a class="sidenav-item-link" href="{{}}">
+                                <span class="nav-text">Order</span>
                                 
                               </a>
                             </li>
 
-                            
-                            <li >
-                              <a class="sidenav-item-link" href="chartjs.html">
-                                <span class="nav-text">Status</span>
-                                
-                              </a>
-                            </li>
-
-                            
-                            <li >
-                              <a class="sidenav-item-link" href="chartjs.html">
-                                <span class="nav-text">Status</span>
-                                
-                              </a>
-                            </li>
+                                                 
 
                       </div>
                     </ul>
@@ -146,49 +132,7 @@
                     <ul  class="collapse"  id="documentation"
                       data-parent="#sidebar-menu">
                       <div class="sub-menu">
-                        
-                        
-                          
-                            <li class="section-title">
-                              Getting Started
-                            </li>
-                      
-                            <li >
-                              <a class="sidenav-item-link" href="introduction.html">
-                                <span class="nav-text">Introduction</span>
-                                
-                              </a>
-                            </li>
-                          
-
-                            <li >
-                              <a class="sidenav-item-link" href="setup.html">
-                                <span class="nav-text">Setup</span>
-                                
-                              </a>
-                            </li>
-                          
-                            <li >
-                              <a class="sidenav-item-link" href="customization.html">
-                                <span class="nav-text">Customization</span>
-                                
-                              </a>
-                            </li>
-                          
-                            <li class="section-title">
-                              Layouts
-                            </li>
-      
-            
-                            <li >
-                              <a class="sidenav-item-link" href="rtl.html">
-                                <span class="nav-text">RTL Direction</span>
-                                
-                              </a>
-                            </li>
-                          
-                        
-
+         
                         
                       </div>
                     </ul>

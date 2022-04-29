@@ -2,9 +2,7 @@
     <x-auth-card>
         <x-slot name="logo">
             <a href="/">
-                <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
-                
-            <img  src="assets/img/web/web2.png" height=auto width=100 alt="Logo">
+               <img  src="assets/img/web/web2.png" height=auto width=100 alt="Logo">
             </a>
         </x-slot>
 
@@ -145,7 +143,7 @@
                     </div>
                     <button type="submit" class="btn btn-lg btn-primary btn-block mb-4">Sign In</button>
                     <p>Don't have an account yet ?
-                      <a class="text-blue" href="sign-up.html">Sign Up</a>
+                      <a class="text-blue" href="{{ route('register') }} ">Sign Up</a>
                     </p>
                   </div>
                 </div>

@@ -123,16 +123,44 @@ Route::get('/', function () {
 
             
                  
-            Route::group(['prefix'=>'charters/{charter}'], function () {
+            Route::group(['prefix'=>'charters/{charter}/{chart}'], function () {
                 Route::get('/','CharterController@index')->name('charter.index');
                 Route::get('/create','CharterController@create')->name('charter.create');
                 Route::post('/store','CharterController@store')->name('charter.store');
     
               
                 Route::get('/show','CharterController@show')->name('charter.show');
+                Route::get('/edit','CharterController@edit')->name('charter.edit');
 
                
                 });
+
+                Route::group(['prefix'=>'reports'], function () {
+                    Route::get('/','ReportController@index')->name('report.index');
+                    Route::get('/create','ReportController@create')->name('report.create');
+                    Route::post('/store','ReportController@store')->name('report.store');
+        
+                  
+                    Route::get('/show','ReportController@show')->name('report.show');
+                    Route::get('/edit','CharterController@edit')->name('report.edit');
+    
+                   
+                    });
+
+                    Route::group(['prefix'=>'payments'], function () {
+                        Route::get('/','PaymentController@index')->name('payment.index');
+                        Route::get('/create','PaymentController@create')->name('payment.create');
+                        Route::post('/store','PaymentController@store')->name('payment.store');
+            
+                    Route::group(['prefix'=>'{payment}'], function () {
+                        Route::get('/show','PaymentController@show')->name('payment.show');
+                        Route::get('/edit','PaymentController@edit')->name('payment.edit');
+                        Route::patch('/update','PaymentController@update')->name('payment.update'); //update patch
+                        Route::get('/delete','PaymentController@delete')->name('payment.delete');
+                        Route::delete('/destroy','PaymentController@destroy')->name('payment.destroy');
+            
+                            });
+                        });
     
        
 
