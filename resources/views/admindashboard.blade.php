@@ -1,6 +1,13 @@
 @extends('layouts.admin.master')
 @section('title','admin-dashboard')
 @section('content')
+
+
+
+<div class="col-12 col-xl-8 mb-4 mb-xl-0">
+                  <h3 class="font-weight-bold">Welcome </h3>
+                </div>
+                <hr/>
 <div class="row">
 
  <div class="col-md-4 mb-4 stretch-card transparent">

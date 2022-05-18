@@ -21,7 +21,6 @@
                         <div class="float-right">
                         <button class="btn btn-success btn-md "><i class="fa fa-cloud-upload"></i> Update </button>
                         <a href="{{ route('jobcategory.index') }}" class="btn btn-dark btn-md"><i class="mdi mdi-cancel"></i>Cancel</a>
-                        <a href="{{ route('jobcategory.delete',[$jobcategory->id]) }}" class="btn btn-dark btn-md"><i class="mdi mdi-cancel"></i>Delete</a>
                         </div>
                     </div>
                 </div>

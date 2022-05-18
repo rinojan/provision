@@ -142,22 +142,24 @@ Route::get('/', function () {
         
                   
                     Route::get('/show','ReportController@show')->name('report.show');
-                    Route::get('/edit','CharterController@edit')->name('report.edit');
+                    Route::get('/edit','ReportController@edit')->name('report.edit');
     
                    
                     });
 
-                    Route::group(['prefix'=>'payments'], function () {
-                        Route::get('/','PaymentController@index')->name('payment.index');
-                        Route::get('/create','PaymentController@create')->name('payment.create');
-                        Route::post('/store','PaymentController@store')->name('payment.store');
+                    Route::group(['prefix'=>'orders'], function () {
+                        Route::get('/','OrderController@index')->name('order.index');
+                        Route::get('/cindex','OrderController@cindex')->name('order.cindex');
+                        Route::get('/rating','OrderController@rating')->name('order.rating');
+                        Route::get('/create','OrderController@create')->name('order.create');
+                        Route::post('/store','OrderController@store')->name('order.store');
             
-                    Route::group(['prefix'=>'{payment}'], function () {
-                        Route::get('/show','PaymentController@show')->name('payment.show');
-                        Route::get('/edit','PaymentController@edit')->name('payment.edit');
-                        Route::patch('/update','PaymentController@update')->name('payment.update'); //update patch
-                        Route::get('/delete','PaymentController@delete')->name('payment.delete');
-                        Route::delete('/destroy','PaymentController@destroy')->name('payment.destroy');
+                    Route::group(['prefix'=>'{order}'], function () {
+                        Route::get('/show','OrderController@show')->name('order.show');
+                        Route::get('/edit','OrderController@edit')->name('order.edit');
+                        Route::patch('/update','OrderController@update')->name('order.update'); //update patch
+                        Route::get('/delete','OrderController@delete')->name('order.delete');
+                        Route::delete('/destroy','OrderController@destroy')->name('order.destroy');
             
                             });
                         });

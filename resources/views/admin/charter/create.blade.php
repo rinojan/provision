@@ -18,14 +18,13 @@
             </div>
             @endif
 
-            {!! Form::open() !!}
+            {!! Form::open()->route('charter.store',[$charter->id,$chart->id])->method('post') !!}
             @include('admin.charter._form')
 
                 <div class="row">
                     <div class="col-md-12">
                         <div class="float-right">
-                        <button class="btn btn-danger btn-md "><i class="mdi mdi-floppy"></i> Edit</button>
-                        <button class="btn btn-success btn-md "><i class="mdi mdi-floppy"></i> Confirm</button>
+                        <button class="btn btn-success btn-md "><i class="mdi mdi-shape-square-plus"></i> Apply</button>
                         <a href="{{ route ('charter.index',['charter'=>$charter->id,'chart'=>$chart->id]) }}" class="btn btn-dark btn-md"> <i class="mdi mdi-cancel"> </i>Cancel</a>
                     </div>  
                     </div>

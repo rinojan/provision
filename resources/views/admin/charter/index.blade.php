@@ -42,7 +42,9 @@
             <td> {{$chart->pivot->type}} </td>
             <td> {{$chart->pivot->working_duration}} </td>
 
-            <td> <a href="{{ route('charter.create',['charter'=>$charter->id,'chart'=>$chart->id]) }}" class="btn btn-info btn-rounded"><span class="icon text-dark-50"><i class="mdi mdi-receipt"></i></span><span class="text">Apply</i></a> </td>
+            <td> <a href="{{ route('charter.create',[$charter->id,$chart->id]) }}" class="btn btn-success btn-rounded"><span class="icon text-dark-50"><i class="mdi mdi-shape-square-plus"></i></span><span class="text"> Apply</i></a>
+            <a href="{{ route('dashboard',[$charter->id,$chart->id]) }}" class="btn btn-dark btn-rounded"><span class="icon text-dark-50"><i class="mdi mdi-shape-square-plus"></i></span><span class="text"> Cancel</i></a>
+            </td>
 
         </tr>
            

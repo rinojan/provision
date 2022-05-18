@@ -1,5 +1,5 @@
 @extends('layouts.admin.master')
-@section('title','payment-index')
+@section('title','Order-index')
 @section('content')
 
 <div class="row">
@@ -8,11 +8,10 @@
             <div class="card-header rounded border-primary">
                 
             <div class="float-left">
-                <h2> Payment Details </h2>
+                <h2> Order Details </h2>
             </div>
 
             <div class="float-right">
-            <a class="btn btn-success btn-rounded"href="{{ route('payment.create') }}"><span class="icon text-dark-50"><i class="mdi mdi-plus-box"></i></span><span class="text">Payment</i></a>
             </div>
             </div>
 
@@ -26,28 +25,33 @@
 <table class="table table-striped">
     <thead class="table-dark">
         <tr>
-            <th>Payment Id</th>
             <th>Charter id</th>
-            <th>Payment Mode</th>
-            <th>Actions</th>
+            <th>Description </th>
+            <th>Job Date </th>
+            <th>Type </th>
+            <th>Work Duration</th>
+            <th>Amount </th>
         
         </tr>
 
     </thead>
     <tbody>
-          
+          @foreach($orders as $order)
+      
 
         <tr>
-            <td> hi</td>
-            <td> </td>
-            <td> </td>
-
-            <td>
-
-            </td>
+            <td>    {{$order->id}}</td>
+            <td>    {{$order->description}}</td>
+            <td>    {{$order->jobdate}}</td>
+            <td>    </td>
+            <td>    </td>
+            <td>    </td>
+           
+        @endforeach
+   
+         
         </tr>
 
-   
     </tbody>
     
 </table>

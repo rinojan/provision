@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests;
+namespace App\Http\Requests\Admin;
 
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -13,7 +13,7 @@ class CharterStoreRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -23,8 +23,14 @@ class CharterStoreRequest extends FormRequest
      */
     public function rules()
     {
-        return [
-            //
-        ];
+         return [
+           
+        'jobdate'=>'required',
+        'description'=>'required',
+        'ratings' =>'nullable',
+     
+
+    ];
+
     }
 }

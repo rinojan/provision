@@ -69,14 +69,14 @@
 
           <li class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="#ui-basic3" aria-expanded="false" aria-controls="ui-basic">
-            <i class="menu-icon mdi mdi-square-inc-cash"></i>
+            <i class="menu-icon mdi mdi-calendar-check"></i>
 
-              <span class="menu-title">Payment</span>
+              <span class="menu-title">Order</span>
               <i class="menu-arrow"></i>
             </a>
             <div class="collapse" id="ui-basic3">
               <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="{{ route ('payment.index')  }}">Payment</a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{ route ('order.index')  }}">Order</a></li>
               </ul>
             </div>
           </li>

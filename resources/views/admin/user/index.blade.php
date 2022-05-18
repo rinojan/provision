@@ -19,8 +19,16 @@
 
 <div class="card-body">
     @if (session('success'))
-    <div class="alert alert-warning">
+    <div class="alert alert-success">
         {{ session('success') }}
+    </div>
+    @endif
+
+
+<div class="card-body">
+    @if (session('error'))
+    <div class="alert alert-success">
+        {{ session('error') }}
     </div>
     @endif
 
@@ -55,6 +63,7 @@
     
 </table>
 </div>
-
+</div> <!-- -->
+</div>
  
 @endsection

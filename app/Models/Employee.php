@@ -29,4 +29,12 @@ class Employee extends Model
     public function user(){
         return $this->hasOne(User::class,'employee_id');
     }
+
+    public function district(){ //district model so province //child so belongsTo
+        return $this->hasOne(District::class,'district_id'); //Province model la irunthu
+    }
+
+    public function  charters(){
+        return $this->hasMany(Charter::class,'employee_id');
+    }
 }

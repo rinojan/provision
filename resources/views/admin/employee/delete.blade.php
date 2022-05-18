@@ -4,6 +4,19 @@
 
 
 
+<div class="card-body">
+    @if (session('success'))
+    <div class="alert alert-success">
+        {{ session('success') }}
+    </div>
+     @endif
+    
+ <div class="card-body">
+     @if (session('success'))
+    <div class="alert alert-warning">
+        {{ session('error') }}
+    </div>
+    @endif
 
 {!! Form::open()->route('employee.destroy',[$employee->id])->method('delete') !!}  <!--meaning-->
 <div> 

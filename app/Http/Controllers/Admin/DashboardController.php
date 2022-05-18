@@ -21,12 +21,18 @@ class DashboardController extends Controller
             case 'Employee':
             return view('employeedashboard');
                   break;
+                  
             case 'Customer':
+                  
             $jobs =Job::with('employees')->get();
-   
-            
-            
-            
+
+            $q = request()->input('q');
+            if($q){
+                  $jobs =Job::where('firstname','like',"%{$q}%")->orwhere('lastname','like',"%{$q}%")->orwhere('id','like',"%{$q}")->with('role')->orderBy('id', 'desc')->paginate(12);
+            }else{
+                   $users=User::with('role','department')->orderBy('id','desc')->paginate('12');
+            }
+           
             return view('customerdashboard',compact('jobs'));
                   break;
            

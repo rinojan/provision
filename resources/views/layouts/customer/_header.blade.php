@@ -23,11 +23,9 @@
                   <!-- Github Link Button -->
                   
                   <li class="dropdown notifications-menu">
-                    <button class="dropdown-toggle" data-toggle="dropdown">
-                      <i class="mdi mdi-bell-outline"></i>
-                    </button>
+                  
                     <ul class="dropdown-menu dropdown-menu-right">
-                      <li class="dropdown-header">You have 5 notifications</li>
+                    
                       <li>
                         <a href="#">
                           <i class="mdi mdi-account-plus"></i> New user registered
@@ -66,13 +64,13 @@
                   <!-- User Account -->
             <li class="dropdown user-menu">
                     <button href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
-                      <img src="assets/img/user/user.png" class="user-image" alt="User Image" />
+                  
                       <span class="d-none d-lg-inline-block">{{Auth::user()->customer->firstname." ".Auth::user()->customer->lastname}}</span>
                     </button>
                     <ul class="dropdown-menu dropdown-menu-right">
                       <!-- User image -->
                       <li class="dropdown-header">
-                        <img src="assets/img/user/user.png" class="img-circle" alt="User Image" />
+                    
                         <div class="d-inline-block">
                         {{Auth::user()->customer->firstname." ".Auth::user()->customer->lastname}} 
                         <small class="pt-1">{{ Auth::user()->email }} </small>

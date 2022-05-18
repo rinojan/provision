@@ -2,7 +2,7 @@
 
 <div class="col-md-12"> {!! Form::text ('firstname','First Name') !!} </div>
 <div class="col-md-12"> {!! Form::text ('lastname','last Name') !!} </div>
-<div class="col-md-12"> {!! Form::text ('email','Email ') !!} </div>
+<div class="col-md-12" > {!! Form::text ('email','Email ') !!} </div>
 <div class="col-md-12"> {!! Form::text ('address','Address') !!} </div>
 <div class="col-md-12"> {!! Form::text ('nic',' NIC') !!} </div>
 <div class="col-md-12"> {!! Form::text ('mobileno','Mobile Number') !!} </div>

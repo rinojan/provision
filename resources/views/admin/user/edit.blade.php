@@ -21,7 +21,6 @@
                         <div class="float-right">
                         <button class="btn btn-success btn-md "><i class="fa fa-cloud-upload"></i> Update </button>
                         <a href="{{ route('user.index') }}" class="btn btn-dark btn-md"><i class="mdi mdi-cancel"></i>Cancel</a>
-                        <a href="{{ route('user.delete',[$user->id]) }}" class="btn btn-dark btn-md"><i class="mdi mdi-cancel"></i>Delete</a>
                         </div>
                     </div>
                 </div>

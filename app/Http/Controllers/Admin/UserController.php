@@ -70,19 +70,32 @@ class UserController extends Controller
         return redirect()->route('user.index')->with('success','User details has been update successfuly!');;
     }
 
-    public function destroy(User $user){
-        $user->delete();
-        return redirect()->route('user.index')->with('success', 'Admin  details has been deleted successfuly!');
-    }
-
     public function delete(User $user){
         return view('admin.user.delete',compact('user'));
 
     }
 
 
+    public function destroy(User $user){
+        if($user->role_id==1){
+            $count =User::where('role_id',1)->count();
 
-    
+                if($count > 1){
+                    $user->delete();
+                    return redirect()->route('user.index')->with('success', 'Admin  details has been deleted successfuly!');
+                }else{
+                    return redirect()->back()->with('error','You cannot delete these accounts');
+                  
+                }
+          
+        }else{
+
+         
+        }
+       
+        
+    }
+
 
 
 }

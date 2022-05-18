@@ -19,5 +19,9 @@ class Job extends Model
     public function employees(){
         return $this->belongsToMany(Employee::class,'employee_job')->withPivot(['type','working_duration','salary','job_category_id']); //alrdy job
     }
+
+    public function charters(){
+        return $this->hasMany(Charter::class,'job_id'); //jbid
+    }
    
 }

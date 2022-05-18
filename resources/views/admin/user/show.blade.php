@@ -4,7 +4,7 @@
 
 
 <div class="row">
-    <div class="col-6 text-dark">
+    <div class="col-12 text-dark">
         <div class="card shadow p-3 mb-5 bg-white rounded border-primary">
             <div class="card-header rounded border-primary">
                 <div class="float-left">

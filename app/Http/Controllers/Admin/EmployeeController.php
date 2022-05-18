@@ -100,7 +100,7 @@ class EmployeeController extends Controller
     public function update(Employee $employee,EmployeeUpdateRequest $request){
 
         $data = $request->validated();                                                                                                  //validated
-        $user =User::where('employee_id','=',$employee->id)->value('id');             //uoutput cureent user id                                                                                       //user frngky employee_id employee model id                                 //id matum bcoz niraya model value id
+        $user =User::where('employee_id','=',$employee->id)->value('id');   //uoutput cureent user id                                                                                       //user frngky employee_id employee model id                                 //id matum bcoz niraya model value id
         if($request->input('password')){
             $data['password']=Hash::make($request->input('password'));
         }else{$data['password']=$employee->user->password;}                                                                                 //user rltn

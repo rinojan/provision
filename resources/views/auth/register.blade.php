@@ -1,3 +1,4 @@
+
 <x-guest-layout>
     <x-auth-card>
         <x-slot name="logo">
@@ -161,33 +162,51 @@
                       
                     <div class="row">
                       <div class="form-group col-md-12 mb-4">
-                        <input type="text" class="form-control input-lg" id="name" aria-describedby="nameHelp" placeholder="Name">
-                      </div>
-                      <div class="form-group col-md-12 mb-4">
-                        <input type="text" class="form-control input-lg" id="firstname" aria-describedby="emailHelp" placeholder="Firstname">
-                      </div>
-
-                      <div class="form-group col-md-12 mb-4">
-                        <input type="text" class="form-control input-lg" id="lastname" aria-describedby="emailHelp" placeholder="Lastname">
+                        <x-label for="firstname" :value="__('FirstName')" />
+                        <x-input id="firstname" class="form-control input-lg" type="text" name="firstname" :value="old('firstname')" required autofocus />    
+                                            
                       </div>
 
                       <div class="form-group col-md-12 mb-4">
-                        <input type="text" class="form-control input-lg" id="address" aria-describedby="emailHelp" placeholder="Address">
+                        <x-label for="lastname" :value="__('LastName')" />
+                        <x-input id="lastname" class="form-control input-lg" type="text" name="lastname" :value="old('lastname')" required autofocus />
                       </div>
 
                       <div class="form-group col-md-12 mb-4">
-                        <input type="text" class="form-control input-lg" id="nic" aria-describedby="emailHelp" placeholder="NIC">
+                        <x-label for="address" :value="__('Address')" />
+                        <x-input id="address" class="form-control input-lg"  type="text" name="address" :value="old('address')" required autofocus />    
                       </div>
 
                       <div class="form-group col-md-12 mb-4">
-                        <input type="text" class="form-control input-lg" id="mobileno" aria-describedby="emailHelp" placeholder="Mobile No">
+                      <x-label for="nic" :value="__('NIC')" />
+                      <x-input id="nic" class="form-control input-lg"  type="text" name="nic" :value="old('nic')" required autofocus />
+                      </div>
+
+                      <div class="form-group col-md-12 mb-4">
+                      <x-label for="email" :value="__('Email')" />
+                      <x-input id="email" class="form-control input-lg"  type="email" name="email" :value="old('email')" required />
+                      </div>
+
+                      <div class="form-group col-md-12 mb-4">
+                      <x-label for="mobileno" :value="__('MobileNo')" />
+                       <x-input id="mobileno" class="form-control input-lg"  type="text" name="mobileno" :value="old('mobileno')" required /> 
                       </div>
 
                       <div class="form-group col-md-12 ">
-                        <input type="password" class="form-control input-lg" id="password" placeholder="Password">
+                      <x-label for="password" :value="__('Password')" />
+
+                      <x-input id="password" class="form-control input-lg" 
+                      type="password"
+                      name="password"
+                      required autocomplete="new-password" /> 
+
                       </div>
                       <div class="form-group col-md-12 ">
-                        <input type="password" class="form-control input-lg" id="password_confirmation" placeholder="Confirm Password">
+                      <x-label for="password_confirmation" :value="__('Confirm Password')" />
+
+                      <x-input id="password_confirmation" class="block mt-1 w-full"
+                                      type="password"
+                                      name="password_confirmation" required />
                       </div>
                       <div class="col-md-12">
                         <div class="d-inline-block mr-3">

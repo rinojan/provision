@@ -56,7 +56,6 @@
 </x-guest-layout>
 
 
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -86,7 +85,7 @@
   
 
   <!-- FAVICON -->
-  <link href="assets/img/favicon.png" rel="shortcut icon" />
+  <<link href="{{ asset ('assets/img/favicon.png') }} " rel="shortcut icon" />
 
   <!--
     HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries
@@ -97,6 +96,13 @@
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
   <![endif]-->
   <script src="assets/plugins/nprogress/nprogress.js"></script>
+
+      <!-- Session Status -->
+      <x-auth-session-status class="mb-4" :status="session('status')" />
+
+      <!-- Validation Errors -->
+      <x-auth-validation-errors class="mb-4" :errors="$errors" />
+
 </head>
 
 </head>
@@ -107,34 +113,56 @@
           <div class="card">
             <div class="card-header bg-primary">
               <div class="app-brand">
-                <a href="/index.html">
-                  <svg class="brand-icon" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid" width="30" height="33"
-                    viewBox="0 0 30 33">
+                <a href="{{  route('dashboard')}} ">
+                  
+                <img src="assets/img/web/favicon2.png">
+
                     <g fill="none" fill-rule="evenodd">
                       <path class="logo-fill-blue" fill="#7DBCFF" d="M0 4v25l8 4V0zM22 4v25l8 4V0z" />
                       <path class="logo-fill-white" fill="#FFF" d="M11 4v25l8 4V0z" />
                     </g>
-                  </svg>
-                  <span class="brand-name">Customer Dashboard</span>
+                 
+            
                 </a>
               </div>
             </div>
             <div class="card-body p-5">
 
               <h4 class="text-dark mb-5">Sign In</h4>
-              <form action="/index.html">
+              <form method="POST" action="{{ route('login') }}">
+                  @csrf
                 <div class="row">
                   <div class="form-group col-md-12 mb-4">
-                    <input type="email" class="form-control input-lg" id="email" aria-describedby="emailHelp" placeholder="Username">
+                  
+                    <x-label for="email" :value="__('Email')" />
+
+                    <x-input id="email" class="form-control input-lg" type="email" name="email" :value="old('email')"   placeholder=" Username" required autofocus />
+                  
+                  
+                  
+                  
                   </div>
                   <div class="form-group col-md-12 ">
-                    <input type="password" class="form-control input-lg" id="password" placeholder="Password">
+
+
+                    <x-label for="password" :value="__('Password')" />
+
+                    <x-input id="password" class="form-control input-lg"  placeholder="Password"
+                                    type="password"
+                                    name="password"
+                                    required autocomplete="current-password" />
+
                   </div>
                   <div class="col-md-12">
                     <div class="d-flex my-2 justify-content-between">
                       <div class="d-inline-block mr-3">
                         <label class="control control-checkbox">Remember me
                           <input type="checkbox" />
+
+            
+
+
+
                           <div class="control-indicator"></div>
                         </label>
                 
@@ -153,7 +181,7 @@
         </div>
       </div>
       <div class="copyright pl-0">
-        <p class="text-center">&copy; 2018 Copyright Sleek Dashboard Bootstrap Template by
+        <p class="text-center">&copy; 2022 Copyright Mobile@net Computer Services Template by
           <a class="text-primary" href="http://www.iamabdus.com/" target="_blank">Abdus</a>.
         </p>
       </div>

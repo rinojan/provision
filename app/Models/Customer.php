@@ -13,11 +13,16 @@ class Customer extends Model
         'address',
         'nic',
         'mobileno',
+        
     ];
 
 
     public function user(){
         return $this->hasOne(User::class,'customer_id');
+    }
+
+    public function  charters(){
+        return $this->hasMany(Charter::class,'customer_id');
     }
 
 }

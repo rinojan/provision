@@ -15,19 +15,18 @@ class CreateChartersTable extends Migration
     {
         Schema::create('charters', function (Blueprint $table) {
             $table->id();
-
-            $table->integer('ratings');
+            $table->integer('ratings')->nullable();
             $table->string('description');
             $table->date('jobdate');
             $table->foreignId('employee_id');
             $table->foreignId('customer_id');
-            $table->foreignId('charter_id');
+            $table->foreignId('job_id');
 
             $table->timestamps();
 
             $table->foreign('employee_id')->references('id')->on('employees')->onDelete('cascade');
             $table->foreign('customer_id')->references('id')->on('customers')->onDelete('cascade');
-            $table->foreign('charter_id')->references('id')->on('charters')->onDelete('cascade');
+            $table->foreign('job_id')->references('id')->on('jobs')->onDelete('cascade');
         });
     }
 

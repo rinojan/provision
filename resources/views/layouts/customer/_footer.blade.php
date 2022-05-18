@@ -1,7 +1,7 @@
 <footer class="footer mt-auto">
             <div class="copyright bg-white">
-              <p>
-                &copy; <span id="copy-year">2019</span> Copyright Mobile@net Template by
+              <p >
+                &copy; <span id="copy-year">2022</span> Copyright Mobile@net Computer Services Template by
                 <a
                   class="text-primary"
                   href="http://www.iamabdus.com/"
