@@ -25,10 +25,8 @@ class CharterController extends Controller
 
     public function store(CharterStoreRequest $request,Employee $charter,Job $chart){
               $data = $request->validated();
-                //dd($charter->id);
-        $charter =Charter::create([
+              $charter =Charter::create([
       
-    
             'jobdate'=>$data['jobdate'],
             'description'=>$data['description'],
             'employee_id'=>$charter->id,
@@ -41,12 +39,12 @@ class CharterController extends Controller
     } 
 
     public function show(Employee $charter,Job $chart){
-        return view('admin.charter.show',compact('charter'));
+      
+        return view('admin.charter.show',compact('charter','chart'));
     }
     public function edit(Employee $charter,Job $chart){
 
         return view('admin.charter.edit',compact('charter','chart'));
-
 
     }
     public function update(){

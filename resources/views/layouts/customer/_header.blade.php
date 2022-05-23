@@ -77,23 +77,11 @@
                         </div>
                       </li>
 
+                     
                       <li>
-                        <a href="profile.html">
-                          <i class="mdi mdi-account"></i> My Profile
-                        </a>
+                        <a href="{{ route('order.cindex') }}"> <i class="mdi mdi-diamond-stone"></i> My Orders </a>
                       </li>
-                      <li>
-                      <li>
-                        <a href="email-inbox.html">
-                          <i class="mdi mdi-email"></i> Message
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#"> <i class="mdi mdi-diamond-stone"></i> Jobs </a>
-                      </li>
-                      <li>
-                        <a href="#"> <i class="mdi mdi-settings"></i> Account Setting </a>
-                      </li>
+                      
 
                       <li class="dropdown-footer">
                           <a class="dropdown-item"  href="{{ route('logout') }}"

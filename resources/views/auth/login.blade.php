@@ -1,59 +1,3 @@
-<x-guest-layout>
-    <x-auth-card>
-        <x-slot name="logo">
-            <a href="/">
-               <img  src="assets/img/web/web2.png" height=auto width=100 alt="Logo">
-            </a>
-        </x-slot>
-
-        <!-- Session Status -->
-        <x-auth-session-status class="mb-4" :status="session('status')" />
-
-        <!-- Validation Errors -->
-        <x-auth-validation-errors class="mb-4" :errors="$errors" />
-
-        <form method="POST" action="{{ route('login') }}">
-            @csrf
-
-            <!-- Email Address -->
-            <div>
-                <x-label for="email" :value="__('Email')" />
-
-                <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus />
-            </div>
-
-            <!-- Password -->
-            <div class="mt-4">
-                <x-label for="password" :value="__('Password')" />
-
-                <x-input id="password" class="block mt-1 w-full"
-                                type="password"
-                                name="password"
-                                required autocomplete="current-password" />
-            </div>
-
-            <!-- Remember Me -->
-            <div class="block mt-4">
-                <label for="remember_me" class="inline-flex items-center">
-                    <input id="remember_me" type="checkbox" class="rounded border-gray-300 text-indigo-600 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" name="remember">
-                    <span class="ml-2 text-sm text-gray-600">{{ __('Remember me') }}</span>
-                </label>
-            </div>
-
-            <div class="flex items-center justify-end mt-4">
-                @if (Route::has('password.request'))
-                    <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('password.request') }}">
-                        {{ __('Forgot your password?') }}
-                    </a>
-                @endif
-
-                <x-button class="ml-3">
-                    {{ __('Log in') }}
-                </x-button>
-            </div>
-        </form>
-    </x-auth-card>
-</x-guest-layout>
 
 
 <!DOCTYPE html>
@@ -97,16 +41,14 @@
   <![endif]-->
   <script src="assets/plugins/nprogress/nprogress.js"></script>
 
-      <!-- Session Status -->
-      <x-auth-session-status class="mb-4" :status="session('status')" />
-
-      <!-- Validation Errors -->
-      <x-auth-validation-errors class="mb-4" :errors="$errors" />
+     
 
 </head>
 
 </head>
+
   <body class="bg-light-gray" id="body">
+
       <div class="container d-flex flex-column justify-content-between vh-100">
       <div class="row justify-content-center mt-5">
         <div class="col-xl-5 col-lg-6 col-md-10">
@@ -114,9 +56,9 @@
             <div class="card-header bg-primary">
               <div class="app-brand">
                 <a href="{{  route('dashboard')}} ">
-                  
-                <img src="assets/img/web/favicon2.png">
-
+              
+                <img src="assets/img/web/web2.png" class="img-thumbnail" alt="loginogo" width="100" height="aut">
+                <h2> Dashboard</h2>
                     <g fill="none" fill-rule="evenodd">
                       <path class="logo-fill-blue" fill="#7DBCFF" d="M0 4v25l8 4V0zM22 4v25l8 4V0z" />
                       <path class="logo-fill-white" fill="#FFF" d="M11 4v25l8 4V0z" />
@@ -128,18 +70,20 @@
             </div>
             <div class="card-body p-5">
 
-              <h4 class="text-dark mb-5">Sign In</h4>
+          
               <form method="POST" action="{{ route('login') }}">
                   @csrf
                 <div class="row">
+                      <!-- Session Status -->
+                 <x-auth-session-status class="mb-4 error text-danger" :status="session('status')" />
+                <!-- Validation Errors -->
+                <x-auth-validation-errors class="mb-4 error text-danger" :errors="$errors" />
                   <div class="form-group col-md-12 mb-4">
                   
                     <x-label for="email" :value="__('Email')" />
 
                     <x-input id="email" class="form-control input-lg" type="email" name="email" :value="old('email')"   placeholder=" Username" required autofocus />
-                  
-                  
-                  
+                                 
                   
                   </div>
                   <div class="form-group col-md-12 ">
@@ -151,6 +95,8 @@
                                     type="password"
                                     name="password"
                                     required autocomplete="current-password" />
+
+                 
 
                   </div>
                   <div class="col-md-12">
@@ -188,3 +134,12 @@
     </div>
 </body>
 </html>
+
+
+
+
+
+
+
+
+

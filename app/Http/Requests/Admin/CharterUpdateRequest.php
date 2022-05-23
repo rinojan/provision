@@ -23,8 +23,12 @@ class CharterUpdateRequest extends FormRequest
      */
     public function rules()
     {
+                   
+        $order=$this->order;
         return [
-            
+       
+            'ratings'=> 'required',
+                          
         ];
     }
 }

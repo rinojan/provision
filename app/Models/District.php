@@ -13,12 +13,12 @@ class District extends Model
 
 
     public function province(){ //district model so province //child so belongsTo
-        return $this->belongTo(Province::class,'province_id'); //Province model la irunthu
+        return $this->belongsTo(Province::class,'province_id'); //Province model la irunthu // s pote
     }
 
     
     public function Employee(){ //district model so province //child so belongsTo
-        return $this->belongTo(Employee::class,'district_id'); //Province model la irunthu
+        return $this->belongsTo(Employee::class,'district_id'); //Province model la irunthu  //s pote 
     }
 }   
 

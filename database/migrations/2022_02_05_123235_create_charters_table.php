@@ -15,7 +15,7 @@ class CreateChartersTable extends Migration
     {
         Schema::create('charters', function (Blueprint $table) {
             $table->id();
-            $table->integer('ratings')->nullable();
+            $table->string('ratings')->nullable();
             $table->string('description');
             $table->date('jobdate');
             $table->foreignId('employee_id');

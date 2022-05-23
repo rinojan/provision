@@ -62,8 +62,9 @@ class EmployeeJobController extends Controller
     }
     
     public function update(Employee $employee,EmployeeJobUpdateRequest $request){
-        $data = $request->validated();                                                                  // $request mela irunthu varuthu validated
-        $employee->update($data);
+        $data = $request->validated();  
+                                                                                                                                                                                                                                    // $request mela irunthu varuthu validated
+        $employee->jobs()->sync([$employee->id=>['salary'=>$data['salary'],'job_id'=>$data['job_id'],'type'=>$data['type'],'working_duration'=>$data['working_duration'] , 'job_category_id'=>$data['job_category_id'] ]]);
         return redirect()->route('employee.job.index',$employee->id)->with('success','Employee Job details has been update successfuly!');;
     }
 

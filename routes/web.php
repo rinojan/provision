@@ -121,14 +121,11 @@ Route::get('/', function () {
         
             });
 
-            
-                 
             Route::group(['prefix'=>'charters/{charter}/{chart}'], function () {
                 Route::get('/','CharterController@index')->name('charter.index');
                 Route::get('/create','CharterController@create')->name('charter.create');
                 Route::post('/store','CharterController@store')->name('charter.store');
-    
-              
+                  
                 Route::get('/show','CharterController@show')->name('charter.show');
                 Route::get('/edit','CharterController@edit')->name('charter.edit');
 
@@ -139,20 +136,17 @@ Route::get('/', function () {
                     Route::get('/','ReportController@index')->name('report.index');
                     Route::get('/create','ReportController@create')->name('report.create');
                     Route::post('/store','ReportController@store')->name('report.store');
-        
-                  
                     Route::get('/show','ReportController@show')->name('report.show');
                     Route::get('/edit','ReportController@edit')->name('report.edit');
-    
+ 
                    
                     });
 
                     Route::group(['prefix'=>'orders'], function () {
                         Route::get('/','OrderController@index')->name('order.index');
                         Route::get('/cindex','OrderController@cindex')->name('order.cindex');
-                        Route::get('/rating','OrderController@rating')->name('order.rating');
                         Route::get('/create','OrderController@create')->name('order.create');
-                        Route::post('/store','OrderController@store')->name('order.store');
+                        Route::post('/store/{order}','OrderController@store')->name('order.store');
             
                     Route::group(['prefix'=>'{order}'], function () {
                         Route::get('/show','OrderController@show')->name('order.show');
@@ -163,11 +157,6 @@ Route::get('/', function () {
             
                             });
                         });
-    
-       
-
-
-        
 
 });
 

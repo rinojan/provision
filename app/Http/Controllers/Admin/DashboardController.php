@@ -7,8 +7,9 @@ use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\Hash;
 use illuminate\Support\Facades\Auth;
-use App\Models\Job;
 
+use App\Models\Job;
+use App\Models\User;
 
 
 class DashboardController extends Controller
@@ -25,14 +26,6 @@ class DashboardController extends Controller
             case 'Customer':
                   
             $jobs =Job::with('employees')->get();
-
-            $q = request()->input('q');
-            if($q){
-                  $jobs =Job::where('firstname','like',"%{$q}%")->orwhere('lastname','like',"%{$q}%")->orwhere('id','like',"%{$q}")->with('role')->orderBy('id', 'desc')->paginate(12);
-            }else{
-                   $users=User::with('role','department')->orderBy('id','desc')->paginate('12');
-            }
-           
             return view('customerdashboard',compact('jobs'));
                   break;
            

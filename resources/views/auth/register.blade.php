@@ -9,7 +9,7 @@
         </x-slot>
 
         <!-- Validation Errors -->
-        <x-auth-validation-errors class="mb-4" :errors="$errors" />
+ 
 
         <form method="POST" action="{{ route('register') }}">
             @csrf
@@ -156,7 +156,7 @@
                   </div>
                 </div>
                 <div class="card-body p-5">
-                  <h4 class="text-dark mb-5">Sign Up</h4>
+                <x-auth-validation-errors class="mb-4 error text-danger" :errors="$errors" />
                   <form method="POST" action="{{ route('register') }}">
                       @csrf
                       
@@ -195,7 +195,7 @@
                       <div class="form-group col-md-12 ">
                       <x-label for="password" :value="__('Password')" />
 
-                      <x-input id="password" class="form-control input-lg" 
+                      <x-input id="password" class="form-control input-lg"
                       type="password"
                       name="password"
                       required autocomplete="new-password" /> 

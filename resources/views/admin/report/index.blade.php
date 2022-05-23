@@ -1,46 +1,55 @@
 @extends('layouts.admin.master')
-@section('title','report List')
+@section('title','SDA Report')
 @section('content')
+
 <div class="row">
-    
     <div class="col-12">
         <div class="card">
             <div class="card-header">
-                <div class="float-left">
-                    <h2>Reports</h2>
-                </div>
-            </div>
 
+                <h6 class="float-left ml-2">Monthly SDA Report</br>
+                    Name of School : {{$school}}</br>
+                    Month:{{ date("F", strtotime($month)).' '. $year }}
+                </h6>
+            </div>
             <div class="card-body">
-                @if (session('success'))
-                <div class="alert alert-success">
-                    {{ session('success') }}
-                </div>
-                @endif
-                <table class="table">
-                    <thead class="thead-dark">
-                        <tr>
-                            <th>Id</th>
-                            <th>Role</th>
-                            <th>Comments</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                 
-                        <tr>
-                           
-                            <td>
-                            </td>
-                        </tr>
-                  
-                    </tbody>
-                </table>
-                <div class="pt-2">
-                    <div class="float-right">
-                    </div>
-                </div>
+                <form method="get">
+                    <select name="year" class="btn btn-outline-info ml-2">
+                        @foreach($years as $year)
+                            <option value="{{ $year }}" {{ request()->input('year') == $year ? 'selected' : '' }}>{{ $year }}</option>
+                        @endforeach
+                    </select>
+                    <select name="month" class="btn btn-outline-info ml-2">
+                        @foreach($months as $month)
+                            <option value="{{ date("m", strtotime($month)) }}" {{ request()->input('month') == date("m", strtotime($month)) ? 'selected' : '' }}>{{ date("F", strtotime($month)) }}</option>
+                        @endforeach
+                    </select>
+                    <input class="btn btn-success ml-2" type="submit" name="action" value="Generate">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Export</button>
+                        <div class="dropdown-menu">
+                            <button class="dropdown-item" type="submit" name="action" value="pdf"><i class="mdi mdi-file-pdf mdi-18px"></i>PDF</button>
+                          </div>
+                </form>
+            <table class="table table-striped">
+                    <tr>
+                        <th>Details</th>
+                        <th>Date</th>
+                        <th>Debit/Credit</th>
+                        <th>SDA Account</th>
+                    </tr>
+                    @foreach ( $data as $data1 )
+                    <tr>
+                        <td>{{$data1['details']}}</td>
+                        <td>{{$data1['date']}}</td>
+                        <td>{{$data1['dorc']}}</td>
+                        <td>{{$data1['sda']}}</td>
+                    </tr>
+                    @endforeach
+            </table>
+            <div class="pt-2">
             </div>
         </div>
     </div>
+</div>
 </div>
 @endsection

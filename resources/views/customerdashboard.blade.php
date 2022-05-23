@@ -62,7 +62,8 @@
                         </div>
                         <div class="media-body align-self-center">
                 
-                          <h5 class="mb-6 text-dark font-weight-medium"> {{$job->title}} </h5> <hr/>
+                          <h5 class="mb-6 text-dark font-weight-medium"> {{$job->title}} </h5>
+                          <hr/>
                           <h6 class="mb-2 text-dark font-weight-medium">Name : {{$job1->title}}.{{$job1->firstname}}</h6>
                           <h6 class="mb-2 text-dark font-weight-medium">Location : {{App\Models\District::whereId($job1->district_id)->value('name')}} </h6>
                           <h6 class="mb-2 text-dark font-weight-medium">  Published: {{ $date =$job1->created_at->format('Y.m.d')}} </h6>

@@ -8,7 +8,7 @@
         <ul class="nav">
       
           <li class="nav-item">
-            <a class="nav-link" href="{{ route('dashboard') }} ">
+            <a class="nav-link" >
               <i class="menu-icon mdi mdi-grid"></i>
          
               <!-- <i class="fas fa-tachometer-alt"></i>  -->
