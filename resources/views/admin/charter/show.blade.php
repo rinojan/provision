@@ -14,14 +14,15 @@
             </div>
             <div class="card-body">
             <table class="table">
+            @foreach($charters as $charter)
             <tbody>
-                <tr> <td> charter id:  {{$charter->id}}          </td> </tr>
-                <tr> <td> Job : {{$chart->title}}          </td> </tr>
-                <tr> <td> Job  {{$chart}}          </td> </tr>
+               
+         
+              
+                <tr> <td> {{$charter->charters}}          </td> </tr>
 
-  
-        
             </tbody>
+            @endforeach
          </table>
             
             </div>

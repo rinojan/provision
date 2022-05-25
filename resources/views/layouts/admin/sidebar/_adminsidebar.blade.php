@@ -93,7 +93,7 @@
             </a>
             <div class="collapse" id="ui-basic4">
               <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="{{ route ('report.index')  }}">Reports</a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{ route ('report.report1')  }}">Reports</a></li>
               </ul>
             </div>
           </li>

@@ -25,7 +25,8 @@ class CharterController extends Controller
 
     public function store(CharterStoreRequest $request,Employee $charter,Job $chart){
               $data = $request->validated();
-              $charter =Charter::create([
+        
+          $charter =Charter::create([
       
             'jobdate'=>$data['jobdate'],
             'description'=>$data['description'],
@@ -38,12 +39,14 @@ class CharterController extends Controller
         return redirect()->route('dashboard',[$charter->id,$chart->id])->with('success','charter details has been created successfuly! See the Order Tab');
     } 
 
-    public function show(Employee $charter,Job $chart){
-      
-        return view('admin.charter.show',compact('charter','chart'));
+    public function show(){
+        $charters =Employee::all();
+
+
+            
+        return view('admin.charter.show',compact('charters'));
     }
     public function edit(Employee $charter,Job $chart){
-
         return view('admin.charter.edit',compact('charter','chart'));
 
     }
@@ -53,13 +56,3 @@ class CharterController extends Controller
 }
 
 
-//
-//public function index(){
-    //$q = request()->input('q');
-    //if($q){
-      //  $users =User::where('firstname','like',"%{$q}%")->orwhere('lastname','like',"%{$q}%")->orwhere('id','like',"%{$q}")->with('role')->orderBy('id', 'desc')->paginate(12);
-   // }else{
-     //   $users=User::with('role','department')->orderBy('id','desc')->paginate('12');
-   // }
-    //return view('admin.user.index',compact('users'));
-//}

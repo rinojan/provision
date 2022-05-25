@@ -133,7 +133,7 @@ Route::get('/', function () {
                 });
 
                 Route::group(['prefix'=>'reports'], function () {
-                    Route::get('/','ReportController@index')->name('report.index');
+                    Route::get('/','ReportController@report1')->name('report.report1');
                     Route::get('/create','ReportController@create')->name('report.create');
                     Route::post('/store','ReportController@store')->name('report.store');
                     Route::get('/show','ReportController@show')->name('report.show');

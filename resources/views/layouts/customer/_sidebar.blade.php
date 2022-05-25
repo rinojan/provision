@@ -164,7 +164,7 @@
             <div class="sidebar-footer">
               <div class="sidebar-footer-content">
                 <h6 class="text-uppercase">
-                  Total jobs <span class="float-right">{{App\Models\Job::count() }}</span>
+                  Total Orders <span class="float-right">{{App\Models\Charter::count() }}</span>
                 </h6>
                 <div class="progress progress-xs">
                   <div

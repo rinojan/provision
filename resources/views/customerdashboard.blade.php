@@ -5,12 +5,15 @@
 
 <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my- my-md-0 mw-100 navbar-search">
                 <div class="input-group">
+                  
+                    {!! Form::open()->route('dashboard')->method('get') !!}
                     {!! Form::text('q','',request()->input('q'))->placeholder('search here.....') !!}
                         <div class="input-group-append">
                             <button class="btn btn-primary" type="submit">
                                 <i class="mdi mdi-briefcase-search"></i>
                             </button>
                         </div>
+                    {!! Form::close() !!}
                 </div>
             </form>
 
@@ -51,10 +54,8 @@
                     @foreach($jobs as $job)
                     @if(isset($job->employees))
 
-                    @foreach($job->employees as $job1)
-
-  
-                        
+                      @foreach($job->employees as $job1)
+                         
                       <tr>
                       <div class="media d-flex mb-5">
                         <div class="media-image align-self-center mr-4 rounded">
@@ -67,8 +68,9 @@
                           <h6 class="mb-2 text-dark font-weight-medium">Name : {{$job1->title}}.{{$job1->firstname}}</h6>
                           <h6 class="mb-2 text-dark font-weight-medium">Location : {{App\Models\District::whereId($job1->district_id)->value('name')}} </h6>
                           <h6 class="mb-2 text-dark font-weight-medium">  Published: {{ $date =$job1->created_at->format('Y.m.d')}} </h6>
-                          <h6 class="mb-2 text-dark font-weight-medium" >  Ratings &#9733 </h6>
-
+                          <h6 class="mb-2 text-dark font-weight-medium" ></h6>
+                          
+                         <!-- // $user->ratings()->avg('rating_for_user') -->
 
                          <!-- <h6 class="mb-3 text-dark font-weight-medium"> {{$job->id}}</h6> -->
                        

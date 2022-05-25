@@ -28,9 +28,7 @@
             <th>Charter id</th>
             <th>Description </th>
             <th>Job Date </th>
-            <th>Type </th>
-            <th>Work Duration</th>
-            <th>Amount </th>
+            <th>Action </th>
         
         </tr>
 
@@ -43,9 +41,8 @@
             <td>    {{$order->id}}</td>
             <td>    {{$order->description}}</td>
             <td>    {{$order->jobdate}}</td>
-            <td>    </td>
-            <td>    </td>
-            <td>    </td>
+            <th>    </th>
+       
            
         @endforeach
    
