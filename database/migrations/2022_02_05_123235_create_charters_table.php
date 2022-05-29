@@ -18,6 +18,7 @@ class CreateChartersTable extends Migration
             $table->string('ratings')->nullable();
             $table->string('description');
             $table->date('jobdate');
+            $table->enum('status',['pending','completed','cancelled','approved'])->default('pending');
             $table->foreignId('employee_id');
             $table->foreignId('customer_id');
             $table->foreignId('job_id');

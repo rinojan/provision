@@ -15,6 +15,7 @@ class Charter extends Model
             'employee_id',
             'customer_id',
             'job_id',
+            'status',
                     
     ];
 

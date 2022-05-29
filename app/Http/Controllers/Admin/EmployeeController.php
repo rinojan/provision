@@ -85,6 +85,11 @@ class EmployeeController extends Controller
 
     }
 
+    public function profile(Employee $employee){
+        return view('admin.employee.profile',compact('employee'));
+
+    }
+
     public function edit(Employee $employee){                                                               //Employee model varala
 
         $employee->load('jobs');
@@ -96,6 +101,8 @@ class EmployeeController extends Controller
         return view('admin.employee.edit',compact('employee','provinces','jobCategories','jobs','districts'));
 
     }
+
+   
 
     public function update(Employee $employee,EmployeeUpdateRequest $request){
 
@@ -128,8 +135,15 @@ class EmployeeController extends Controller
             'employee_id'=>$employee->id, //
       ]);
 
+      if(Auth::user()->role->name=="Admin"){
+
         return redirect()->route('employee.index')->with('success','Employee details has been update successfuly!');;
+    }else{
+        return redirect()->route('dashboard')->with('success','Profile details has been update successfuly!');;
+
     }
+
+}
 
     public function delete(Employee $employee){
         return view('admin.employee.delete',compact('employee'));

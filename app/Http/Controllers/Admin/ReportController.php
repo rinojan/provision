@@ -1,51 +1,75 @@
 <?php
-
 namespace App\Http\Controllers\Admin;
 
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Models\Report;
+use Illuminate\Http\Request;
 use App\Models\Job;
-
+use App\Models\Charter;
 use Barryvdh\DomPDF\Facade as PDF;
-
+use Carbon\Carbon;
+use Carbon\CarbonPeriod;
 
 
 class ReportController extends Controller
 {
-
     public function report1(Request $request){
-       $data=[];
-       $job_title=$request->input('job_title');
-       //$grade = $request->input('grade');
-       //$section = $request->input('section');
-       $action=$request->input('action');
-       $data = [
-          [
-              'job_title' => $job_title,
-              //'grade' => $grade,
-             // 'A'=>80,
-              //'B'=>67,
-             // 'C'=>55,
-            //  'S'=>35,
-             // 'W'=>21,
-          ],
-      ];
-       if ($action == 'Export') {
-          $pdf = PDF::loadView('admin.report.export.report1', [
-              'data' => $data,
-              'job_title' => $job_title,
-             // 'section' => $section,
-          ]);
-          return $pdf->download("SDA-Report-{$job_title}-{$section}.pdf");
-       }
-         $job_titles =Job::distinct()->get(['title']);
-         // $grades= Student::distinct()->get(['grade']);
-         // $sections= Student::distinct()->get(['section']);
-         return view('admin.report.report1',compact('job_titles'));
+        $data = [];
+        $year=$request->input('year');
+        $month=$request->input('month');
+        $action=$request->input('action');
+        if(in_array($month,["01","03","05","07","09","11"])){
+            //dd($month);
+        for($i=1;$i<32;$i++){
+            $data[$i]= [
+                'date' => date("{$year}-{$month}-$i"),
+                'num_of_orders' => Charter::whereDate('updated_at',date("{$year}-{$month}-$i"))->count(),
+                'num_of_completed' => Charter::whereDate('updated_at',date("{$year}-{$month}-$i"))->where('status','completed')->count(),
+                'num_of_pending' => Charter::whereDate('updated_at',date("{$year}-{$month}-$i"))->where('status','pending')->count(),
+                'num_of_cancelled' => Charter::whereDate('updated_at',date("{$year}-{$month}-$i"))->where('status','cancelled')->count(),
+                'num_of_approved' => Charter::whereDate('updated_at',date("{$year}-{$month}-$i"))->where('status','approved')->count(),
+
+            ];
+        }
+        }
+        if(in_array($month,["04","06","08","10","12"])){
+            //dd($month);
+        for($i=1;$i<31;$i++){
+            $data[$i]= [
+                'date' => date("{$year}-{$month}-$i"),
+                'num_of_orders' => Charter::whereDate('updated_at',date("{$year}-{$month}-$i"))->count(),
+                'num_of_completed' => Charter::whereDate('updated_at',date("{$year}-{$month}-$i"))->where('status','completed')->count(),
+                'num_of_pending' => Charter::whereDate('updated_at',date("{$year}-{$month}-$i"))->where('status','pending')->count(),
+                'num_of_cancelled' => Charter::whereDate('updated_at',date("{$year}-{$month}-$i"))->where('status','cancelled')->count(),
+                'num_of_approved' => Charter::whereDate('updated_at',date("{$year}-{$month}-$i"))->where('status','approved')->count(),
+            ];
+        }
+        }
+        if($month=="02"){
+
+            for($i=1;$i<29;$i++){
+                $data[$i]= [
+                    'date' => date("{$year}-{$month}-$i"),
+                    'num_of_orders' => Charter::whereDate('updated_at',date("{$year}-{$month}-$i"))->count(),
+                    'num_of_completed' => Charter::whereDate('updated_at',date("{$year}-{$month}-$i"))->where('status','completed')->count(),
+                    'num_of_pending' => Charter::whereDate('updated_at',date("{$year}-{$month}-$i"))->where('status','pending')->count(),
+                    'num_of_cancelled' => Charter::whereDate('updated_at',date("{$year}-{$month}-$i"))->where('status','cancelled')->count(),
+                    'num_of_approved' => Charter::whereDate('updated_at',date("{$year}-{$month}-$i"))->where('status','approved')->count(),
+                ];
+            }
+
+        }
+      if ($action == 'Export') {
+         $pdf = PDF::loadView('admin.report.export.report1', [
+             'data' => $data,
+             'year' => $year,
+             'month' => $month,
+         ]);
+         return $pdf->download("Job Monthly Report{$year}-{$month}.pdf");
       }
-      public function report2(){
-         return view('admin.report.report2');
-      }
-   
- }
+         $jobs=Job::all();
+         $status= Charter::distinct()->get(['status']);
+         $years = range(Carbon::now()->year, 2020);
+         $months = CarbonPeriod::create('2020-01-01', '1 month', '2020-12-31');
+         return view('admin.report.report1',compact('data','years','months'));
+     }
+    }

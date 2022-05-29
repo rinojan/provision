@@ -38,9 +38,9 @@ class RegisteredUserController extends Controller
             'firstname' => ['required', 'string', 'max:255'],
             'lastname' => ['required', 'string', 'max:255'],
             'address' => ['required', 'string', 'max:255'],
-            'nic' => ['required', 'string', 'max:255'],
+            'nic' => ['required', 'string', 'max:10','regex:/^\d{9}V$/','unique:customers'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'mobileno' =>['required','regex:/^([0-9\s\-\+\(\)]*)$/','max:10'], /// meaning of regex
+            'mobileno' =>['required','regex:/^([0-9\s\-\+\(\)]*)$/','min:10'], /// meaning of regex
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
 

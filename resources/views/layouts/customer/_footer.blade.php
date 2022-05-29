@@ -6,14 +6,14 @@
                   class="text-primary"
                   href="http://www.iamabdus.com/"
                   target="_blank"
-                  >Abdus</a
-                >.
+                  >Abdus</a>
               </p>
             </div>
+            
             <script>
                 var d = new Date();
                 var year = d.getFullYear();
                 document.getElementById("copy-year").innerHTML = year;
             </script>
-          </footer>
+</footer>
        

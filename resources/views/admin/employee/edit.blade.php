@@ -17,8 +17,13 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="float-right">
+<!-- think-->             @if(Auth::user()->role->name=='Employee')
                         <button class="btn btn-success btn-md "><i class="fa fa-cloud-upload"></i> Update </button>
-                        <a href="{{ route('employee.index') }}" class="btn btn-dark btn-md"><i class="mdi mdi-cancel"></i>Cancel</a>
+                        <a href="{{ route('dashboard') }}" class="btn btn-dark btn-md"><i class="mdi mdi-cancel"></i>Cancel</a>
+                            @else
+                            <button class="btn btn-success btn-md "><i class="fa fa-cloud-upload"></i> Update </button>
+                            <a href="{{ route('employee.index') }}" class="btn btn-dark btn-md"><i class="mdi mdi-cancel"></i>Cancel</a>
+                            @endif
 
                         </div>
                     </div>

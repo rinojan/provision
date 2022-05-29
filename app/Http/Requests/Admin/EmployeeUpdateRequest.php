@@ -25,17 +25,17 @@ class EmployeeUpdateRequest extends FormRequest
     public function rules()
     {
                    
-        $employee=$this->employee->user; //dd panlm //employee rltn  user varible 2 update
-
+        $user=$this->employee->user; 
+        $employee=$this->employee;
         return [
           
-            'email'=>['required','email',Rule::unique('users')->ignore($employee)], //users table
+            'email'=>['required','email',Rule::unique('users')->ignore($user)],
             'title'=>'required',
             'firstname'=>'required',
             'lastname'=>'required',
-            'address'=>'required',
-            'nic'=>'required',
-            'mobileno'=>'required',
+            'address'=>'required',           
+            'nic'=>['required',Rule::unique('employees')->ignore($employee)], 
+            'mobileno'=>'required|min:10',
             'gender'=>'required',
             'password'=>'nullable|confirmed|min:8',
             'province_id'=>'required',

@@ -8,7 +8,7 @@
             <div class="card-header rounded border-primary">
                 
             <div class="float-left">
-                <h2>Job Category </h2>
+                <h2>Jobcategory Details </h2>
             </div>
 
             <div class="float-right">
@@ -26,8 +26,8 @@
 <table class="table table-striped">
     <thead class="table-dark">
         <tr>
-            <th> Job Category Id </th>
-            <th> Job Category Name  </th>
+            <th> Jobcategory Id </th>
+            <th> Jobcategory Name  </th>
             <th> Actions </th>
          
         </tr>

@@ -8,7 +8,7 @@
         <div class="card">
             <div class="card-header">
                 <div class="float-left">
-                  <h2> Apply job</h2>
+                  <h2> Apply for a Job</h2>
                 </div>
             </div>
             <div class="card-body">

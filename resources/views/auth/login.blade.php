@@ -29,7 +29,7 @@
   
 
   <!-- FAVICON -->
-  <<link href="{{ asset ('assets/img/favicon.png') }} " rel="shortcut icon" />
+  <link href="{{ asset ('assets/img/favicon.png') }} " rel="shortcut icon" />
 
   <!--
     HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries
@@ -46,25 +46,24 @@
 </head>
 
 </head>
+<center> <img src="assets/img/web/web2.png" class="img-thumbnail" alt="loginogo" width="100" height="auto">  </center>
 
-  <body class="bg-light-gray" id="body">
-
+<body class="bg-light-gray" id="body">
       <div class="container d-flex flex-column justify-content-between vh-100">
       <div class="row justify-content-center mt-5">
         <div class="col-xl-5 col-lg-6 col-md-10">
           <div class="card">
             <div class="card-header bg-primary">
               <div class="app-brand">
-                <a href="{{  route('dashboard')}} ">
-              
-                <img src="assets/img/web/web2.png" class="img-thumbnail" alt="loginogo" width="100" height="aut">
-                <h2> Dashboard</h2>
+                <a href="{{ route('login') }}">
+                  <svg class="brand-icon" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid" width="30" height="33"
+                    viewBox="0 0 30 33">
                     <g fill="none" fill-rule="evenodd">
                       <path class="logo-fill-blue" fill="#7DBCFF" d="M0 4v25l8 4V0zM22 4v25l8 4V0z" />
                       <path class="logo-fill-white" fill="#FFF" d="M11 4v25l8 4V0z" />
                     </g>
-                 
-            
+                  </svg>
+                  <span class="brand-name">Sign in to continue</span>
                 </a>
               </div>
             </div>
@@ -113,7 +112,6 @@
                         </label>
                 
                       </div>
-                      <p><a class="text-blue" href="#">Forgot Your Password?</a></p>
                     </div>
                     <button type="submit" class="btn btn-lg btn-primary btn-block mb-4">Sign In</button>
                     <p>Don't have an account yet ?

@@ -28,6 +28,7 @@ class CharterUpdateRequest extends FormRequest
         return [
        
             'ratings'=> 'required',
+            'status' =>'required',
                           
         ];
     }

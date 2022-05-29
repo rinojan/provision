@@ -8,7 +8,7 @@
             <div class="card-header rounded border-primary">
                 
             <div class="float-left">
-                <h2> Job </h2>
+                <h2> Job Details</h2>
             </div>
 
             <div class="float-right">
@@ -18,7 +18,7 @@
 
 <div class="card-body">
     @if (session('success'))
-    <div class="alert alert-warning">
+    <div class="alert alert-success">
         {{ session('success') }}
     </div>
     @endif
@@ -26,9 +26,9 @@
 <table class="table table-striped">
     <thead class="table-dark">
         <tr>
-            <th>Job Id</th>
+            <th>Job id</th>
             <th>Job Title</th>
-            <th>Job Category Name</th>
+            <th>Jobcategory Name</th>
             <th>Actions</th>
         
         </tr>

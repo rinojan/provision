@@ -10,9 +10,22 @@
                     <h4 class="card-title">Edit - {{ $employee->firstname. ' ' .$employee->lastname}}</h4>  <!-- $employee user details than varuthu-->
                 </div>
             </div>
+            @if (session('success'))
+    <div class="alert alert-success">
+        {{ session('success') }}
+    </div>
+    @endif
+
+   
+    @if (session('error'))
+    <div class="alert alert-warning">
+        {{ session('error') }}
+    </div>
+    @endif
+
 
             <div class="card-body">
-                {!! Form::open()->fill($employee,$job)->route('employee.job.update',[$employee->id])->method('patch') !!} <!-- employee relation -->
+                {!! Form::open()->fill($employee,$job)->route('employee.job.update',[$employee->id,$job->id,$type])->method('patch') !!} <!-- employee relation -->
                 @include('admin.employee_job._form')
                 <div class="row">
                     <div class="col-md-12">

@@ -47,7 +47,9 @@ Route::get('/', function () {
 
         Route::group(['prefix'=>'{employee}'], function () {
             Route::get('/show','EmployeeController@show')->name('employee.show');
+            Route::get('/profile','EmployeeController@profile')->name('employee.profile');
             Route::get('/edit','EmployeeController@edit')->name('employee.edit');
+         
             Route::patch('/update','EmployeeController@update')->name('employee.update');
             Route::get('/delete','EmployeeController@delete')->name('employee.delete');
             Route::delete('/destroy','EmployeeController@destroy')->name('employee.destroy');
@@ -55,14 +57,14 @@ Route::get('/', function () {
             Route::get('/job','EmployeeJobController@index')->name('employee.job.index');
             Route::get('/job/create','EmployeeJobController@create')->name('employee.job.create');
             Route::post('/job/store','EmployeeJobController@store')->name('employee.job.store');
-            Route::get('/job/show','EmployeeJobController@show')->name('employee.job.show');
-            Route::patch('/job/update','EmployeeJobController@update')->name('employee.job.update');
+            
 
             Route::group(['prefix'=>'{job}'], function () {
+                Route::get('/job/show','EmployeeJobController@show')->name('employee.job.show');
                 Route::get('/job/edith','EmployeeJobController@edith')->name('employee.job.edith');
                 Route::get('/job/editd','EmployeeJobController@editd')->name('employee.job.editd');
-               
                 Route::group(['prefix'=>'{type}'], function(){
+                    Route::patch('/job/update','EmployeeJobController@update')->name('employee.job.update');
 
                     Route::get('/job/delete','EmployeeJobController@delete')->name('employee.job.delete');
                     Route::delete('/job/destroy','EmployeeJobController@destroy')->name('employee.job.destroy');
@@ -83,6 +85,8 @@ Route::get('/', function () {
         Route::group(['prefix'=>'{customer}'], function () {    
             Route::get('/show','CustomerController@show')->name('customer.show');
             Route::get('/edit','CustomerController@edit')->name('customer.edit');
+            Route::get('/editc','CustomerController@editc')->name('customer.editc');
+
             Route::patch('/update','CustomerController@update')->name('customer.update');
             Route::get('/delete','CustomerController@delete')->name('customer.delete');
             Route::delete('destroy','CustomerController@destroy')->name('customer.destroy');
@@ -145,8 +149,10 @@ Route::get('/', function () {
                     Route::group(['prefix'=>'orders'], function () {
                         Route::get('/','OrderController@index')->name('order.index');
                         Route::get('/cindex','OrderController@cindex')->name('order.cindex');
+                        Route::get('/eindex','OrderController@eindex')->name('order.eindex');
                         Route::get('/create','OrderController@create')->name('order.create');
                         Route::post('/store/{order}','OrderController@store')->name('order.store');
+                        Route::post('/storeStatus/{order}','OrderController@storeStatus')->name('order.storeStatus');
             
                     Route::group(['prefix'=>'{order}'], function () {
                         Route::get('/show','OrderController@show')->name('order.show');

@@ -8,20 +8,39 @@
         <div class="card shadow p-3 mb-6 bg-white rounded border-primary">
             <div class="card-header rounded border-primary">
                 <div class="float-left">
-                <a href="{{route('employee.job.index',$employee->id)}}" class="btn btn-primary btn-circle"><i class="far fa-arrow-left">back</i></a>
+                <h2> <a href="{{route('employee.job.index',$employee->id)}}" class="btn btn-primary btn-circle"><i class="mdi mdi-arrow-left-bold-circle"></i></a>{{$employee->firstname}} </h2>
+
                 </div>  
             </div>  
         </div>
 
     <div class="card-body">
-        <table class="table">
-            <tbody>
-                <tr> <td>  {{$employee->jobs}} </td> </tr>
-                <tr> <td></td> </tr>
-                <tr> <td>  </td> </tr>
-         
-            
 
+    <table class="table table-hover">
+        <thead class="table-dark">
+
+        <tr>    
+                <th> Job id</th>
+                <th> Job </th>
+                <th> Working_type </th>
+                <th> Working_duration </th>               
+                <th> Salary </th>
+
+        </tr>
+        </thead>
+        @foreach($employee->jobs as $job)
+        <tr>
+      
+            <td> {{$job->id}}</td>
+            <td> {{$job->title}}</td>
+            <td> {{$job->pivot->type}}</td>
+            <td> {{$job->pivot->working_duration}}</td>
+            <td> {{$job->pivot->salary}}</td>
+          
+        </tr>
+
+        @endforeach
+         
         </tbody>
         </table>
     </div>

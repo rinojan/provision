@@ -39,13 +39,11 @@ class CharterController extends Controller
         return redirect()->route('dashboard',[$charter->id,$chart->id])->with('success','charter details has been created successfuly! See the Order Tab');
     } 
 
-    public function show(){
-        $charters =Employee::all();
-
-
-            
-        return view('admin.charter.show',compact('charters'));
+    public function show(Employee $charter,Job $chart){
+        $charter->load('jobs');
+        return view('admin.charter.show',compact('charter'));
     }
+    
     public function edit(Employee $charter,Job $chart){
         return view('admin.charter.edit',compact('charter','chart'));
 

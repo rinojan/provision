@@ -28,8 +28,8 @@ class CustomerStoreRequest extends FormRequest
             'firstname'=>'required|string',
             'lastname'=>'required|string',
             'address'=>'required',
-            'nic' =>'required',
-            'mobileno' =>'required',
+            'nic' =>'required|regex:/^\d{9}V$/|unique:customers',
+            'mobileno' =>'required|min:10',
 
         ];
     }

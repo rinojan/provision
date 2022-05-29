@@ -6,13 +6,7 @@
               </button>
               <!-- search form -->
               <div class="search-form d-none d-lg-inline-block">
-                <div class="input-group">
-                  <button type="button" name="search" id="search-btn" class="btn btn-flat">
-                    <i class="mdi mdi-magnify"></i>
-                  </button>
-                  <input type="text" name="query" id="search-input" class="form-control" placeholder="Search by name "
-                    autofocus autocomplete="off" />
-                </div>
+                
                 <div id="search-results-container">
                   <ul id="search-results"></ul>
                 </div>
@@ -22,50 +16,11 @@
                 <ul class="nav navbar-nav">
                   <!-- Github Link Button -->
                   
-                  <li class="dropdown notifications-menu">
-                  
-                    <ul class="dropdown-menu dropdown-menu-right">
-                    
-                      <li>
-                        <a href="#">
-                          <i class="mdi mdi-account-plus"></i> New user registered
-                          <span class=" font-size-12 d-inline-block float-right"><i class="mdi mdi-clock-outline"></i> 10 AM</span>
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#">
-                          <i class="mdi mdi-account-remove"></i> User deleted
-                          <span class=" font-size-12 d-inline-block float-right"><i class="mdi mdi-clock-outline"></i> 07 AM</span>
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#">
-                          <i class="mdi mdi-chart-areaspline"></i> Sales report is ready
-                          <span class=" font-size-12 d-inline-block float-right"><i class="mdi mdi-clock-outline"></i> 12 PM</span>
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#">
-                          <i class="mdi mdi-account-supervisor"></i> New client
-                          <span class=" font-size-12 d-inline-block float-right"><i class="mdi mdi-clock-outline"></i> 10 AM</span>
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#">
-                          <i class="mdi mdi-server-network-off"></i> Server overloaded
-                          <span class=" font-size-12 d-inline-block float-right"><i class="mdi mdi-clock-outline"></i> 05 AM</span>
-                        </a>
-                      </li>
-                      <li class="dropdown-footer">
-                        <a class="text-center" href="#"> View All </a>
-                      </li>
-                    </ul>
-                  </li>
                   <!-- User Account -->
-            <li class="dropdown user-menu">
+                    <li class="dropdown user-menu">
                     <button href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
                   
-                      <span class="d-none d-lg-inline-block">{{Auth::user()->customer->firstname." ".Auth::user()->customer->lastname}}</span>
+                    <span class="d-none d-lg-inline-block">{{Auth::user()->customer->firstname." ".Auth::user()->customer->lastname}}</span>
                     </button>
                     <ul class="dropdown-menu dropdown-menu-right">
                       <!-- User image -->
@@ -76,11 +31,17 @@
                         <small class="pt-1">{{ Auth::user()->email }} </small>
                         </div>
                       </li>
-
+                      <li>
+                        <a href="{{route('customer.editc',Auth::user()->customer->id)}}">
+                          <i class="mdi mdi-account"></i> My Profile
+                        </a>
+                      </li>
                      
                       <li>
-                        <a href="{{ route('order.cindex') }}"> <i class="mdi mdi-diamond-stone"></i> My Orders </a>
+                        <a href="{{ route('order.cindex') }}"> <i class="mdi mdi-calendar-check"></i> My Orders </a>
                       </li>
+
+                   
                       
 
                       <li class="dropdown-footer">

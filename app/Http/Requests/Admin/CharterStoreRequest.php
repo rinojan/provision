@@ -28,6 +28,7 @@ class CharterStoreRequest extends FormRequest
         'jobdate'=>'required',
         'description'=>'required',
         'ratings' =>'nullable',
+        'status' =>'nullable',
      
 
     ];

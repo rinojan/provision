@@ -6,9 +6,11 @@
     <div class="col-12 text-dark">
         <div class="card shadow p-3 mb-5 bg-white rounded border-info">
             <div class="card-header rounded border-primary">
-                
             <div class="float-left">
-                <h2> {{$employee->firstname}} </h2>
+                </div>   
+            <div class="float-left">
+
+            <h2> <a href="{{route('employee.index',$employee->id)}}" class="btn btn-primary btn-circle"><i class="mdi mdi-arrow-left-bold-circle"></i></a>{{$employee->firstname}} </h2>
             </div>
 
             <div class="float-right">
@@ -26,9 +28,10 @@
     <table class="table table-striped">
         <thead class="table-dark">
             <tr>
-                <th>job id </th>
-                <th>job</th>
-                <th> Work Duration</th>
+                <th>Job id </th>
+                <th>Job</th>
+                <th> Working Type</th>
+             
                 <th> Salary</th>
                 <th>Actions </th>
                
@@ -41,6 +44,7 @@
                 <td>{{$job->pivot->job_id}} </td>
                 <td>{{$job->title}}</td>  <!-- user etails than employee name  varuthu-->
                 <td>{{$job->pivot->type}}</td>
+                
                 <td>{{$job->pivot->salary}}</td>
                 <td>
                     <a href="{{ route('employee.job.show',[$employee->id,$job->pivot->job_id]) }}" class="btn btn-info btn-rounded"><span class="icon text-dark-50"><i class="mdi mdi-receipt"></i></span><span class="text">Show</i></a>

@@ -35,14 +35,21 @@ class EmployeeJobController extends Controller
     }
 
     public function store(Employee $employee, EmployeeJobStoreRequest $request){
+        try{
         $data = $request->validated();
         $employee->jobs()->attach([$employee->id=>['salary'=>$data['salary'],'job_id'=>$data['job_id'],'type'=>$data['type'],'working_duration'=>$data['working_duration'] , 'job_category_id'=>$data['job_category_id'] ]]);
 
         return redirect()->route('employee.job.index',$employee->id)->with('success','Employee Job details has been created successfuly!');
-        } 
+        } catch(\Illuminate\Database\QueryException $e){
 
-    public function show(Employee $employee){
-            return view ('admin.employee_job.show',compact('employee'));
+            return redirect()->back()->with('error','You cannot create same job details again');
+        }
+    } 
+
+    public function show(Employee $employee,Job $job){
+        
+        return view ('admin.employee_job.show',compact('employee','job'));
+
         }
 
     public function edith(Employee $employee,Job $job){
@@ -61,19 +68,22 @@ class EmployeeJobController extends Controller
             return view ('admin.employee_job.edit', compact('employee','jobs','jobCategories','job','type'));
     }
     
-    public function update(Employee $employee,EmployeeJobUpdateRequest $request){
-        $data = $request->validated();  
-                                                                                                                                                                                                                                    // $request mela irunthu varuthu validated
-        $employee->jobs()->sync([$employee->id=>['salary'=>$data['salary'],'job_id'=>$data['job_id'],'type'=>$data['type'],'working_duration'=>$data['working_duration'] , 'job_category_id'=>$data['job_category_id'] ]]);
+    public function update(Employee $employee,Job $job,$type,EmployeeJobUpdateRequest $request){
+        try{
+        $data = $request->validated();                                                                                                                                                                                                                                // $request mela irunthu varuthu validated
+        $employee->jobs()->wherePivot('type',$type)->syncWithoutDetaching([$employee->id=>['salary'=>$data['salary'],'job_id'=>$data['job_id'],'type'=>$data['type'],'working_duration'=>$data['working_duration'] , 'job_category_id'=>$data['job_category_id'] ]]);
         return redirect()->route('employee.job.index',$employee->id)->with('success','Employee Job details has been update successfuly!');;
+        }catch(\Illuminate\Database\QueryException $e){
+              
+            return redirect()->back()->with('error','You cannot updates these fields');
+        }
     }
 
     public function delete(Employee $employee,Job $job, $type){
         return view('admin.employee_job.delete',compact('employee','job','type'));
 
     }
-    public function destroy(Employee $employee,Job $job, $type){
-  
+    public function destroy(Employee $employee,Job $job, $type){  
         $employee->jobs()->wherePivot('type',$type)->detach($job->id);
 
         return redirect()->route('employee.job.index',$employee->id)->with('success', 'Employee_job  details has been deleted successfuly!');

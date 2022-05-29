@@ -2,12 +2,13 @@
     <div class="col-md-2">  {!! Form::select('title','Title')->options([''=>'Select Title','Mr'=>'Mr','Mrs'=>'Mrs','Miss'=>'Miss']) !!} </div>
     <div class="col-md-5">  {!! Form::text ('firstname','First Name') !!} </div>
     <div class="col-md-5">  {!! Form::text ('lastname','Last Name') !!} </div>
-    <div class="col-md-3">  {!! Form::text ('email','Email')->type('email') !!} </div>
-    <div class="col-md-3">  {!! Form::text ('address','Address') !!} </div>
-    <div class="col-md-3">  {!! Form::text ('mobileno','Mobile Number')  !!} </div>
-    <div class="col-md-3">  {!! Form::text ('nic','NIC') !!} </div>
     <div class="col-md-3">  {!! Form::select ('gender','Gender')->options([''=>'Your Gender','male'=>'Male','female'=>'Female']) !!} </div>
-    <div class="col-md-3">
+    <div class="col-md-3">  {!! Form::text ('nic','NIC') !!} </div>
+    
+    <div class="col-md-3">  {!! Form::text ('mobileno','Mobile Number')  !!} </div>
+    <div class="col-md-3">  {!! Form::text ('email','Email')->type('email') !!} </div>
+    <div class="col-md-4">  {!! Form::text ('address','Address') !!} </div> 
+    <div class="col-md-4">
         <div class="form-group">
                 <label for="province_id">Province:</label>
                 <select id="province_id" name="province_id" class="form-control">
@@ -20,7 +21,7 @@
             </div>
     </div>
 
-    <div class="col-md-6">
+    <div class="col-md-4">
         <div class="form-group">
             <label for ="district_id">District:</label>
             <select id ="district_id" name="district_id" class="form-control"> </select>

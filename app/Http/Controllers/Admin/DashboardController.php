@@ -24,23 +24,25 @@ class DashboardController extends Controller
             return view('admindashboard');
                   break;
             case 'Employee':
-            return view('employeedashboard');
+                  $employee_id=Auth::user()->employee->id;
+                  $orders=Charter::where('employee_id',$employee_id)->get();
+            return view('employeedashboard',compact('orders'));
                   break;
                   
             case 'Customer':
              
 
-            $jobs =Job::with('employees')->get();
+          
 
             $q = request()->input('q');
 
             if($q){
-                $users =Employee::where('firstname','like',"%{$q}%")->orwhere('lastname','like',"%{$q}%")->orwhere('id','like',"%{$q}")->with('jobs')->orderBy('id', 'desc')->paginate(12);
+                $jobs =Job::where('title','like',"%{$q}%")->with('employees')->orderBy('id', 'desc')->paginate(12);
             }else{
-                  $users=Employee::with('jobs','user')->orderBy('id','desc')->paginate('12');   
+                  $jobs =Job::with('employees')->orderBy('id', 'desc')->paginate(12);   
             }
-
-            return view('customerdashboard',compact('jobs','users'));
+            
+            return view('customerdashboard',compact('jobs'));
             break;
 
             }      

@@ -4,26 +4,22 @@
       
      
       <nav class="sidebar sidebar-offcanvas" id="sidebar">
-     
-        <ul class="nav">
-      
+         <ul class="nav">      
           <li class="nav-item">
-            <a class="nav-link" >
-              <i class="menu-icon mdi mdi-grid"></i>
-         
-              <!-- <i class="fas fa-tachometer-alt"></i>  -->
-              <span class="menu-title" class="selected|" >Dashboard</span>
+            <a class="nav-link" href="{{ route('dashboard') }}">
+              <i class="menu-icon mdi mdi-grid"></i>       
+              <span class="menu-title" class="selected|">Dashboard</span>
             </a>
         
           <li class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="#form-elements" aria-expanded="false" aria-controls="form-elements">
             <i class="menu-icon mdi mdi-briefcase-check"></i>
-              <span class="menu-title">JobCategory</span>
+              <span class="menu-title">Jobcategory</span>
               <i class="menu-arrow"></i>
             </a>
             <div class="collapse" id="form-elements">
               <ul class="nav flex-column sub-menu">
-                <li class="nav-item"><a class="nav-link" href="{{ route('jobcategory.index') }}">Add JobCategory </a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ route('jobcategory.index') }}">Add Jobcategory </a></li>
               </ul>
             </div>
           </li>
@@ -68,7 +64,7 @@
           </li>
 
           <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="#ui-basic3" aria-expanded="false" aria-controls="ui-basic">
+            <a class="nav-link" data-toggle="collapse" href="#ui-basic3" aria-expanded="false" aria-controls="ui-basic3">
             <i class="menu-icon mdi mdi-calendar-check"></i>
 
               <span class="menu-title">Order</span>
@@ -85,7 +81,7 @@
 
 
           <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="#ui-basic4" aria-expanded="false" aria-controls="ui-basic">
+            <a class="nav-link" data-toggle="collapse" href="#ui-basic4" aria-expanded="false" aria-controls="ui-basic4">
             <i class="menu-icon mdi mdi-file-multiple"></i>
 
               <span class="menu-title">Reports</span>
@@ -96,16 +92,7 @@
                 <li class="nav-item"> <a class="nav-link" href="{{ route ('report.report1')  }}">Reports</a></li>
               </ul>
             </div>
+          </li>      
           </li>
-
-            
-     
-
-
-
-          </li>
-
-
-
         </ul>
       </nav>

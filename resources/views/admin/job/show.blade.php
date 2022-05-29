@@ -9,16 +9,17 @@
         <div class="card shadow p-3 mb-5 bg-white rounded border-primary">
             <div class="card-header rounded border-primary">
                 <div class="float-left">
-                <a href="{{route('job.index')}}" class="btn btn-primary btn-circle"><i class="far fa-arrow-left">back</i></a>
+                <a href="{{route('job.index')}}" class="btn btn-primary btn-circle"><i class="mdi mdi-arrow-left-bold-circle">back</i></a>
                 </div>
                     
             </div>
         </div>
     <div class="card-body">
-        <table class="table">
+    <table class="table table-hover">
             <tbody>
-                <tr><td>JobCategory Id :  {{$job->id}}</td></tr>
-                <tr><td>JobCategory Name :  {{$job->jobcategory->name}}</td></tr>
+                <tr><td>Job Id :  {{$job->id}}</td></tr>
+                <tr><td>Job Title :  {{$job->title}}</td></tr>                
+                <tr><td>Jobcategory Name :  {{$job->jobcategory->name}}</td></tr>
             </tbody>
             
         </table>

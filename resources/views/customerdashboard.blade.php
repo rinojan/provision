@@ -7,7 +7,7 @@
                 <div class="input-group">
                   
                     {!! Form::open()->route('dashboard')->method('get') !!}
-                    {!! Form::text('q','',request()->input('q'))->placeholder('search here.....') !!}
+                    {!! Form::text('q','',request()->input('q'))->placeholder('Search by job.....') !!}
                         <div class="input-group-append">
                             <button class="btn btn-primary" type="submit">
                                 <i class="mdi mdi-briefcase-search"></i>
@@ -32,19 +32,7 @@
                       
    
                       <h1 class="display-6">Recent jobs</h2>
-                      <div>
-                          <button class="text-black-50 mr-2 font-size-20"><i class="mdi mdi-cached"></i></button>
-                          <div class="dropdown show d-inline-block widget-dropdown">
-                              <a class="dropdown-toggle icon-burger-mini" href="#" role="button" id="dropdown-product" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-display="static">
-                              </a>
-                              <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdown-product">
-                                <li class="dropdown-item"><a  href="#">Update Data</a></li>
-                                <li class="dropdown-item"><a  href="#">Detailed Log</a></li>
-                                <li class="dropdown-item"><a  href="#">Statistics</a></li>
-                                <li class="dropdown-item"><a  href="#">Clear Data</a></li>
-                              </ul>
-                            </div>
-                      </div>
+                      
 
                     </div>
 
@@ -59,16 +47,17 @@
                       <tr>
                       <div class="media d-flex mb-5">
                         <div class="media-image align-self-center mr-4 rounded">
-                          <a href="#"><img src="assets/img/products/p3.jpg" alt="customer image"></a>
+                          <a href="#"><img src="assets/img/products/job3.jpg" alt="customer image"></a>
                         </div>
                         <div class="media-body align-self-center">
                 
-                          <h5 class="mb-6 text-dark font-weight-medium"> {{$job->title}} </h5>
+                          <h5 class="mb-6 text-dark font-weight-bold"> {{$job->title}} </h5>
                           <hr/>
                           <h6 class="mb-2 text-dark font-weight-medium">Name : {{$job1->title}}.{{$job1->firstname}}</h6>
                           <h6 class="mb-2 text-dark font-weight-medium">Location : {{App\Models\District::whereId($job1->district_id)->value('name')}} </h6>
                           <h6 class="mb-2 text-dark font-weight-medium">  Published: {{ $date =$job1->created_at->format('Y.m.d')}} </h6>
-                          <h6 class="mb-2 text-dark font-weight-medium" ></h6>
+                          <h6 class="mb-2 text-dark font-weight-medium">Ratings : ( {{App\Models\Charter::where('employee_id',$job1->id)->avg('ratings')}} )  <h6>
+
                           
                          <!-- // $user->ratings()->avg('rating_for_user') -->
 
